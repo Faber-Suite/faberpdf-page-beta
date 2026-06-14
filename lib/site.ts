@@ -26,12 +26,15 @@ export const siteConfig = {
   contactEmail: "hello@faberpdf.com",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://faberpdf.com",
   description:
-    "A local desktop PDF editor for signing documents, annotating pages, validating PDFs, and making focused text edits offline.",
+    "A modern local-first PDF editor for signing, editing, annotating, and validating documents on your desktop.",
   keywords: [
     "FaberPDF",
+    "modern PDF editor",
+    "local-first PDF editor",
     "desktop PDF editor",
     "offline PDF editor",
     "PDF signing",
+    "qualified electronic certificate PDF signing",
     "PDF annotation",
     "edit PDF text",
     "local PDF editor",

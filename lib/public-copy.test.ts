@@ -32,6 +32,32 @@ describe("public website copy", () => {
     expect(strings.filter((text) => bannedCopyPattern.test(text))).toEqual([])
   })
 
+  test("positions each locale with market-native conversion copy", () => {
+    const english = collectStrings(getDictionary("en")).join("\n")
+    const serbianLatin = collectStrings(getDictionary("sr-Latn")).join("\n")
+    const serbianCyrillic = collectStrings(getDictionary("sr-Cyrl")).join("\n")
+    const bosnian = collectStrings(getDictionary("bs")).join("\n")
+
+    expect(english).toContain("modern local-first PDF editor")
+    expect(english).toContain("without uploading documents to a browser tool")
+    expect(english).toContain("Currently in beta")
+
+    expect(serbianLatin).toContain(
+      "potpisivanje kvalifikovanim elektronskim sertifikatom"
+    )
+    expect(serbianLatin).toContain("trenutno u beta verziji")
+
+    expect(serbianCyrillic).toContain(
+      "потписивање квалификованим електронским сертификатом"
+    )
+    expect(serbianCyrillic).toContain("тренутно у бета верзији")
+
+    expect(bosnian).toContain(
+      "potpisivanje kvalifikovanim elektronskim certifikatom"
+    )
+    expect(bosnian).toContain("trenutno u beta verziji")
+  })
+
   test("public pickers use shadcn dropdown components", () => {
     const componentSources = [
       "components/marketing/language-switcher.tsx",
