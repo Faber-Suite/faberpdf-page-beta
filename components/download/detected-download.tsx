@@ -108,6 +108,7 @@ export function DetectedDownload({
     [
       downloads,
       messages.button,
+      messages.chooseButton,
       messages.unsupportedButton,
       selectedLabel,
       selectedPlatform,
