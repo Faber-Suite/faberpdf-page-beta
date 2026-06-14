@@ -42,7 +42,7 @@ const en = {
   locale: "en",
   htmlLang: "en",
   metadata: {
-    defaultTitle: `${siteConfig.name} - Desktop PDF editor`,
+    defaultTitle: `${siteConfig.name} - Modern local-first PDF editor`,
     titleTemplate: `%s - ${siteConfig.name}`,
     description: siteConfig.description,
   },
@@ -60,7 +60,7 @@ const en = {
   },
   footer: {
     description:
-      "Desktop PDF editing for signatures, notes, validation checks, and small text fixes.",
+      "Modern local-first PDF editing for signatures, annotations, validation checks, and focused text fixes.",
     productHeading: "Product",
     contactHeading: "Contact",
     copyright: "All rights reserved.",
@@ -127,194 +127,195 @@ const en = {
   },
   home: {
     hero: {
-      badge: "Public preview",
-      secondaryBadge: "Local files. Direct download.",
+      badge: "Modern local-first PDF editor",
+      secondaryBadge: "Currently in beta",
       versionBadge: `Version ${siteConfig.betaVersion}`,
-      title: "Edit PDFs on your desktop. Keep the file on your machine.",
+      title: "A modern local-first PDF editor for desktop work.",
       description:
-        "FaberPDF handles the PDF jobs that break your flow: signatures, annotations, validation checks, and focused text fixes without starting with a cloud upload.",
-      primaryAction: "Download for your desktop",
-      secondaryAction: "Send feedback",
+        "FaberPDF helps you sign, edit, annotate, and validate PDFs without uploading documents to a browser tool.",
+      primaryAction: "Download FaberPDF",
+      secondaryAction: "Share feedback",
     },
     sections: {
-      featuresEyebrow: "Desktop workflow",
-      featuresTitle: "Routine PDF work should feel local, fast, and plain.",
+      featuresEyebrow: "Local-first PDF work",
+      featuresTitle:
+        "Handle everyday PDF jobs without moving the file out of your workflow.",
       featuresDescription:
-        "Open a file, make the change, save it, and get back to the real work. The preview is free while the app is shaped by real usage.",
-      screenshotsEyebrow: "Actual product screens",
-      screenshotsTitle: "See the app before you install it.",
+        "Open the PDF on your desktop, sign or edit what matters, save it, and move on. The current build is a beta, but the product promise is simple: practical PDF work stays local.",
+      screenshotsEyebrow: "Actual product",
+      screenshotsTitle: "See the desktop app before you install it.",
       screenshotsDescription:
-        "The page uses real FaberPDF screens, so visitors can judge the desktop workflow before downloading.",
-      previewEyebrow: "Preview promise",
-      previewTitle: "A simple path for trying FaberPDF.",
+        "The page uses real FaberPDF screens so you can judge the workflow before downloading the app.",
+      previewEyebrow: "Why try it",
+      previewTitle: "Built for the PDF work people actually repeat.",
       previewDescription:
-        "A clear page, the right desktop build, and one place to tell us what needs work.",
+        "Signing a document, marking up a page, validating a file, or fixing a small text issue should not require a cloud round-trip.",
       downloadEyebrow: "Download",
       downloadTitle: "The right package for the visitor's desktop.",
       downloadDescription:
         "The site detects Windows, macOS, or Linux and keeps the matching installer choices hosted on downloads.faberpdf.com close to the click.",
       feedbackEyebrow: "Feedback",
-      feedbackTitle: "Found something rough? Send it from a dedicated page.",
+      feedbackTitle: "Help shape the beta around real PDF work.",
       feedbackDescription:
-        "Feedback stays anonymous by default and goes through Formspree to email. Specific examples are more useful than polished essays.",
+        "If a signing, editing, annotation, or validation workflow feels rough, send a short note. Specific examples are more useful than polished essays.",
       trustEyebrow: "Trust",
-      trustTitle: "Clear enough before the click.",
+      trustTitle: "A desktop editor, not a document upload page.",
       trustDescription:
-        "The website is only the marketing, download, and feedback surface. The PDF work belongs in the desktop app.",
+        "The website explains the product, hosts installers, and collects feedback. Your PDF work happens inside the desktop app.",
       faqEyebrow: "FAQ",
-      faqTitle: "Clear boundaries for this preview.",
+      faqTitle: "What to know before downloading.",
       faqDescription:
-        "A plain product page, clear installer choices, and a real feedback loop.",
+        "The current beta is simple to try, clear about installer choices, and explicit about where your files are handled.",
     },
     featurePillars: [
       {
-        title: "Sign and mark up PDFs locally",
+        title: "Sign and review documents locally",
         description:
-          "Place signatures, add notes, and save finished documents from the desktop app.",
+          "Add signatures, notes, and marks in the desktop app before saving the finished PDF.",
         icon: PenLineIcon,
       },
       {
-        title: "Fix small text issues",
+        title: "Make focused PDF edits",
         description:
-          "Make focused corrections in existing PDFs without rebuilding the whole document.",
+          "Correct small text issues and practical document details without rebuilding the file from scratch.",
         icon: TextCursorInputIcon,
       },
       {
-        title: "Keep documents on your machine",
+        title: "Keep sensitive PDFs off browser tools",
         description:
-          "Routine review and editing can stay in a local file workflow instead of beginning with a browser upload.",
+          "Work from a local desktop app so document review does not begin with an upload.",
         icon: LockKeyholeIcon,
       },
     ],
     previewCards: [
       {
-        title: "Free while feedback shapes the app",
+        title: "Currently in beta",
         description:
-          "This preview is for learning what users need before the paid launch returns.",
+          "Try the current desktop build while FaberPDF is shaped around real PDF workflows.",
         icon: BadgeCheckIcon,
       },
       {
-        title: "Anonymous feedback is welcome",
+        title: "Clear desktop builds",
         description:
-          "Email is optional. Send bugs, friction, missing workflows, or quick notes.",
+          "Download the build for Windows, macOS, or Linux directly from FaberPDF download storage.",
         icon: MessageSquareTextIcon,
       },
       {
-        title: "Desktop app first",
+        title: "Feedback improves the app",
         description:
-          "The website explains FaberPDF and hosts builds. Editing happens in the app.",
+          "Send bugs, friction, missing workflows, or quick notes with an optional reply email.",
         icon: MonitorDownIcon,
       },
     ],
     feedbackTips: [
       {
-        title: "Bugs",
+        title: "Report a bug",
         description:
-          "What happened, what you expected, and your operating system.",
+          "Tell us what happened, what you expected, and which operating system you used.",
         icon: BugIcon,
       },
       {
-        title: "Friction",
+        title: "Describe friction",
         description:
-          "Anything that felt slow, hidden, confusing, or too many clicks.",
+          "Point out anything that felt slow, hidden, unclear, or too many clicks.",
         icon: FilePenLineIcon,
       },
       {
-        title: "Ideas",
+        title: "Request a workflow",
         description:
-          "PDF jobs you want FaberPDF to handle better in future builds.",
+          "Name the PDF job you want FaberPDF to handle better in future builds.",
         icon: LightbulbIcon,
       },
     ],
     trustPoints: [
-      "Direct desktop download",
-      "Clear public preview",
-      "Anonymous feedback",
-      "Local PDF workflow",
+      "Modern local-first PDF editor",
+      "Currently in beta",
+      "Desktop app workflow",
+      "No browser upload to use the editor",
       "Windows, macOS, and Linux builds",
       "Real desktop app screenshots",
     ],
     legalNotes: [
       {
-        title: "Local-first positioning",
+        title: "Local-first by design",
         description:
-          "FaberPDF is positioned around working with files on your desktop rather than uploading PDFs to this website.",
+          "FaberPDF is built around working with files on your desktop rather than processing PDFs on this website.",
         icon: ShieldCheckIcon,
       },
       {
-        title: "Feedback by email",
+        title: "Feedback stays separate from PDFs",
         description:
-          "Feedback is sent through Formspree to the site owner. Do not paste sensitive PDF contents into feedback messages.",
+          "Feedback is sent through Formspree to the site owner. Do not paste sensitive document contents into feedback messages.",
         icon: FileTextIcon,
       },
     ],
     faqItems: [
       {
-        question: "Is this preview free?",
+        question: "Is FaberPDF free to try?",
         answer:
-          "Yes. Download the current desktop build directly from downloads.faberpdf.com.",
+          "Yes. FaberPDF is currently in beta, and the current desktop build can be downloaded directly from downloads.faberpdf.com.",
       },
       {
-        question: "Is FaberPDF a web PDF editor?",
+        question: "What makes it different from a web PDF editor?",
         answer:
-          "No. FaberPDF is a desktop PDF editor. The website explains the product, hosts download links, and collects feedback.",
+          "FaberPDF is a desktop app built around local files. You can sign, edit, annotate, and validate PDFs without uploading documents to a browser tool.",
       },
       {
-        question: "Will the final version also be free?",
+        question: "Can I use it with sensitive documents?",
         answer:
-          "The stable commercial model can be decided later. This project is intentionally focused on the free public preview.",
+          "The website does not process your PDFs. Editing happens inside the desktop app, and feedback messages should not include sensitive document contents.",
       },
       {
         question: "Can I send feedback anonymously?",
         answer: "Yes. Email is optional and only useful if you want a reply.",
       },
       {
-        question: "How are download links configured?",
+        question: "Where are installers hosted?",
         answer:
-          "The public download links point to downloads.faberpdf.com. Future releases can update those links without changing the operating-system detection flow.",
+          "The public download links point to downloads.faberpdf.com, with separate builds for Windows, macOS, and Linux.",
       },
     ],
-    feedbackCta: "Open feedback page",
+    feedbackCta: "Share product feedback",
   },
   downloadPage: {
     metadata: {
-      title: "Download",
+      title: "Download FaberPDF",
       description:
-        "Download the FaberPDF desktop preview for Windows, macOS, or Linux.",
+        "Download the FaberPDF beta for Windows, macOS, or Linux.",
     },
     eyebrow: "Download",
-    title: "Get the desktop build for your operating system.",
+    title: "Download the FaberPDF beta for your desktop.",
     description:
-      "Open this page on the machine where you want to try FaberPDF. The site detects your operating system and keeps the alternate platform choices close by.",
+      "Open this page on the machine where you want to use FaberPDF. The site detects your operating system and keeps alternate desktop builds close by.",
     badges: [
+      "Currently in beta",
+      "Modern local-first PDF editor",
       "Windows, macOS, and Linux",
-      "Local desktop app",
-      "Feedback-friendly preview",
     ],
     cardsTitle: "Before you install",
     cardsDescription:
-      "A few practical notes for trying FaberPDF on a real desktop workflow.",
+      "A few practical notes before trying FaberPDF on real documents.",
     cards: [
       {
-        title: "Use the matching desktop build",
+        title: "Choose the matching build",
         description:
           "The primary area follows the detected operating system. If detection misses, choose another platform or installer format from the selector.",
       },
       {
-        title: "Keep sensitive PDFs local",
+        title: "Work with local files",
         description:
-          "This website hosts the installer. Editing and review happen inside the desktop app.",
+          "This website hosts the installer. Signing, editing, annotation, and review happen inside the desktop app.",
       },
       {
-        title: "Tell us what feels rough",
+        title: "Tell us what blocks your workflow",
         description:
-          "Short notes about install friction, missing builds, or platform-specific problems are useful.",
+          "Short notes about install friction, missing builds, or platform-specific PDF work are useful.",
       },
     ],
     feedbackTitle: "Something off with the build?",
     feedbackDescription:
-      "Send a note from the feedback page with your operating system and app version.",
-    feedbackAction: "Send download feedback",
+      "Send a note with your operating system, app version, and the step that failed.",
+    feedbackAction: "Share download feedback",
   },
   download: {
     platformNames: {
@@ -363,23 +364,24 @@ const en = {
   },
   feedback: {
     metadata: {
-      title: "Feedback",
+      title: "Feedback for FaberPDF",
       description:
-        "Send anonymous FaberPDF feedback about bugs, friction, ideas, and desktop workflow notes.",
+        "Send FaberPDF beta feedback about signing, editing, annotations, validation, and desktop workflow friction.",
     },
-    title: "Tell us what should change next.",
+    title: "Help shape the beta around real PDF work.",
     description:
-      "Send bugs, friction, workflow gaps, or small wins. The form goes through Formspree to email, and the reply address stays optional.",
-    formTitle: "Send feedback",
-    formDescription: "Short notes are fine. Specific examples are gold.",
+      "Send bugs, friction, workflow gaps, or small wins from the current beta. The reply address stays optional.",
+    formTitle: "Send product feedback",
+    formDescription:
+      "Short notes are fine. Specific examples make the feedback easier to act on.",
     badges: {
       anonymous: "Anonymous by default",
       emailOptional: "Email optional",
     },
     tipsTitle: "Useful feedback includes",
     tips: [
-      "What you were trying to do.",
-      "What felt slow, unclear, or broken.",
+      "What PDF workflow you were trying to finish.",
+      "What felt slow, unclear, hidden, or broken.",
       "Your platform and app version if it matters.",
     ],
     form: {
@@ -403,7 +405,7 @@ const en = {
       versionPlaceholder: siteConfig.betaVersion,
       messageLabel: "Your feedback",
       messagePlaceholder:
-        "What happened, what felt rough, or what should be easier?",
+        "What happened, what felt rough, or what PDF workflow should be easier?",
       messageDescription: "Please avoid pasting sensitive document contents.",
       emailLabel: "Reply email",
       emailPlaceholder: "you@example.com",
@@ -426,10 +428,10 @@ const srLatn = {
   locale: "sr-Latn",
   htmlLang: "sr-Latn",
   metadata: {
-    defaultTitle: `${siteConfig.name} - Desktop PDF editor`,
+    defaultTitle: `${siteConfig.name} - PDF editor za elektronsko potpisivanje`,
     titleTemplate: `%s - ${siteConfig.name}`,
     description:
-      "Lokalni desktop PDF editor za potpisivanje dokumenata, anotacije, proveru PDF-ova i male izmene teksta offline.",
+      "PDF editor za potpisivanje kvalifikovanim elektronskim sertifikatom, uređivanje, anotacije i proveru dokumenata.",
   },
   navigation: [
     { label: "Funkcije", href: "/#features" },
@@ -445,7 +447,7 @@ const srLatn = {
   },
   footer: {
     description:
-      "Desktop PDF editor za potpise, napomene, provere dokumenata i male izmene teksta.",
+      "PDF editor za kvalifikovano elektronsko potpisivanje, anotacije, proveru i praktične izmene dokumenata.",
     productHeading: "Proizvod",
     contactHeading: "Kontakt",
     copyright: "Sva prava zadržana.",
@@ -513,82 +515,85 @@ const srLatn = {
   home: {
     ...en.home,
     hero: {
-      badge: "Javno izdanje",
-      secondaryBadge: "Lokalni fajlovi. Direktno preuzimanje.",
+      badge: "Potpisivanje kvalifikovanim elektronskim sertifikatom",
+      secondaryBadge: "Trenutno u beta verziji",
       versionBadge: `Verzija ${siteConfig.betaVersion}`,
-      title: "Uređujte PDF na desktopu. Fajl ostaje kod vas.",
+      title:
+        "PDF editor za potpisivanje kvalifikovanim elektronskim sertifikatom.",
       description:
-        "FaberPDF rešava PDF poslove koji prekidaju tok rada: potpise, anotacije, provere dokumenata i ciljane izmene teksta bez slanja fajla u servis u oblaku.",
-      primaryAction: "Preuzmi za svoj računar",
+        "FaberPDF pomaže da potpišete, proverite, označite i uredite PDF dokumente na računaru, bez slanja fajlova kroz browser alat.",
+      primaryAction: "Preuzmi FaberPDF",
       secondaryAction: "Pošalji utisak",
     },
     sections: {
-      featuresEyebrow: "Desktop tok rada",
-      featuresTitle: "Svakodnevni PDF posao treba da bude lokalan i brz.",
+      featuresEyebrow: "Elektronsko potpisivanje i PDF rad",
+      featuresTitle:
+        "Potpisivanje i uređivanje PDF-a bez nepotrebnog slanja fajlova.",
       featuresDescription:
-        "Otvorite fajl, napravite izmenu, sačuvajte ga i nastavite dalje. Ovo izdanje je besplatno dok se aplikacija oblikuje kroz stvarno korišćenje.",
-      screenshotsEyebrow: "Stvarni ekrani proizvoda",
+        "Otvorite dokument na računaru, potpišite ga kvalifikovanim sertifikatom, dodajte napomene ili napravite potrebnu izmenu i nastavite dalje.",
+      screenshotsEyebrow: "Stvarni ekran aplikacije",
       screenshotsTitle: "Pogledajte aplikaciju pre instalacije.",
       screenshotsDescription:
-        "Stranica koristi stvarne FaberPDF ekrane da posetilac razume desktop tok rada pre preuzimanja.",
-      previewEyebrow: "Obećanje ovog izdanja",
-      previewTitle: "Jednostavan put da probate FaberPDF.",
+        "Stranica prikazuje stvarne FaberPDF ekrane da odmah vidite kako izgleda desktop rad sa dokumentima.",
+      previewEyebrow: "Zašto probati",
+      previewTitle:
+        "Jedan alat za potpisivanje, proveru i praktične PDF izmene.",
       previewDescription:
-        "Jasna stranica, pravi desktop paket i jedno mesto za korisne utiske.",
+        "FaberPDF je trenutno u beta verziji, ali glavna ideja je jasna: potpisivanje kvalifikovanim elektronskim sertifikatom i svakodnevni PDF poslovi na računaru.",
       downloadEyebrow: "Preuzimanje",
       downloadTitle: "Pravi paket za računar posetioca.",
       downloadDescription:
         "Sajt prepoznaje Windows, macOS ili Linux i drži odgovarajuće instalacione opcije sa downloads.faberpdf.com odmah uz klik.",
       feedbackEyebrow: "Utisci",
-      feedbackTitle: "Nešto je zapinjalo? Pošaljite na posebnoj stranici.",
+      feedbackTitle: "Pomozite da beta verzija bolje pokrije stvaran rad.",
       feedbackDescription:
-        "Utisci su anonimni podrazumevano i preko Formspree-a stižu na imejl. Konkretan primer vredi više od savršeno napisane poruke.",
+        "Ako potpisivanje, provera, anotacije ili uređivanje zapinju, pošaljite kratak primer. Konkretna situacija vredi više od savršeno napisane poruke.",
       trustEyebrow: "Poverenje",
-      trustTitle: "Dovoljno jasno pre klika.",
+      trustTitle: "Desktop aplikacija za dokumente, ne upload stranica.",
       trustDescription:
-        "Sajt je samo marketing, preuzimanje i mesto za utiske. PDF posao se obavlja u desktop aplikaciji.",
+        "Sajt objašnjava proizvod, nudi instalacione pakete i prima utiske. PDF posao se obavlja u desktop aplikaciji.",
       faqEyebrow: "FAQ",
-      faqTitle: "Jasne granice za ovo izdanje.",
+      faqTitle: "Šta treba znati pre preuzimanja.",
       faqDescription:
-        "Jasna stranica proizvoda, jasan izbor instalacije i stvarna petlja za utiske.",
+        "Najvažnije informacije o potpisivanju, lokalnom radu, izboru instalacije i beta verziji.",
     },
     featurePillars: [
       {
-        title: "Potpisujte i obeležavajte PDF-ove lokalno",
+        title: "Potpišite PDF kvalifikovanim sertifikatom",
         description:
-          "Postavite potpise, dodajte napomene i sačuvajte završene dokumente iz desktop aplikacije.",
+          "Koristite FaberPDF za potpisivanje kvalifikovanim elektronskim sertifikatom u lokalnoj desktop aplikaciji.",
         icon: PenLineIcon,
       },
       {
-        title: "Ispravite sitne tekstualne greške",
+        title: "Uredite i označite dokument",
         description:
-          "Napravite ciljane izmene u postojećim PDF-ovima bez ponovne izrade celog dokumenta.",
+          "Dodajte napomene, označite važne delove i napravite ciljane izmene bez ponovne izrade celog PDF-a.",
         icon: TextCursorInputIcon,
       },
       {
-        title: "Dokumenti ostaju na vašem računaru",
+        title: "Fajl ostaje na vašem računaru",
         description:
-          "Pregled i uređivanje mogu ostati u lokalnom toku rada umesto da počnu slanjem fajla kroz pregledač.",
+          "Radite sa dokumentom u desktop aplikaciji, umesto da svaki PDF prvo šaljete kroz browser alat.",
         icon: LockKeyholeIcon,
       },
     ],
     previewCards: [
       {
-        title: "Besplatno dok utisci oblikuju aplikaciju",
+        title: "Trenutno u beta verziji",
         description:
-          "Ovo izdanje služi da saznamo šta korisnicima stvarno treba pre povratka plaćenog lansiranja.",
+          "FaberPDF je trenutno u beta verziji i oblikuje se oko stvarnih tokova rada sa PDF dokumentima.",
         icon: BadgeCheckIcon,
       },
       {
-        title: "Anonimni utisci su dobrodošli",
+        title: "Potpisivanje kao glavni tok rada",
         description:
-          "Imejl je opcionalan. Pošaljite grešku, frikciju, tok rada koji nedostaje ili kratku napomenu.",
+          "Kvalifikovani elektronski sertifikat je u prvom planu, uz uređivanje, anotacije i proveru dokumenata.",
         icon: MessageSquareTextIcon,
       },
       {
-        title: "Desktop aplikacija na prvom mestu",
+        title: "Utisci bez obavezne adrese",
         description:
-          "Sajt objašnjava FaberPDF i hostuje pakete. Uređivanje se radi u aplikaciji.",
+          "Imejl je opcionalan. Pošaljite grešku, frikciju, tok rada koji nedostaje ili kratku napomenu.",
         icon: MonitorDownIcon,
       },
     ],
@@ -612,93 +617,99 @@ const srLatn = {
       },
     ],
     trustPoints: [
+      "Potpisivanje kvalifikovanim sertifikatom",
+      "Trenutno u beta verziji",
+      "Lokalni rad sa PDF dokumentima",
       "Direktno desktop preuzimanje",
-      "Javno izdanje bez konfuzije",
-      "Anonimni utisci",
-      "Lokalni PDF tok rada",
       "Windows, macOS i Linux paketi",
       "Stvarni snimci ekrana aplikacije",
     ],
     legalNotes: [
       {
-        title: "Lokalni proizvod",
+        title: "PDF rad je u desktop aplikaciji",
         description:
-          "FaberPDF se pozicionira oko rada sa fajlovima na desktopu, ne oko slanja PDF-ova na ovaj sajt.",
+          "FaberPDF je pozicioniran oko rada sa fajlovima na računaru, ne oko slanja PDF-ova ovom sajtu.",
         icon: ShieldCheckIcon,
       },
       {
         title: "Utisci preko imejla",
         description:
-          "Utisci se šalju kroz Formspree vlasniku sajta. Ne lepite osetljiv sadržaj PDF-a u poruku.",
+          "Utisci se šalju kroz Formspree vlasniku sajta. Ne lepite osetljiv sadržaj dokumenta u poruku.",
         icon: FileTextIcon,
       },
     ],
     faqItems: [
       {
-        question: "Da li je ovo izdanje besplatno?",
+        question:
+          "Da li FaberPDF podržava potpisivanje kvalifikovanim elektronskim sertifikatom?",
         answer:
-          "Da. Preuzmite trenutni desktop paket direktno sa downloads.faberpdf.com.",
+          "Da. To je glavni tok rada za regionalne korisnike, uz dodatne PDF funkcije kao što su anotacije, provera i ciljane izmene.",
       },
       {
         question: "Da li je FaberPDF web PDF editor?",
         answer:
-          "Ne. FaberPDF je desktop PDF editor. Sajt objašnjava proizvod, hostuje linkove za preuzimanje i prikuplja utiske.",
+          "Ne. FaberPDF je desktop PDF editor. Sajt služi za objašnjenje proizvoda, preuzimanje instalacionih paketa i slanje utisaka.",
       },
       {
-        question: "Da li će finalna verzija biti besplatna?",
+        question: "Da li je aplikacija već dostupna?",
         answer:
-          "Komercijalni model za stabilnu verziju može da se odluči kasnije. Ovaj projekat je namerno fokusiran na besplatno javno izdanje.",
+          "Da. FaberPDF je trenutno u beta verziji, a aktuelni desktop paket možete preuzeti direktno sa downloads.faberpdf.com.",
+      },
+      {
+        question: "Da li dokument ostaje lokalno?",
+        answer:
+          "PDF rad se obavlja u desktop aplikaciji. U poruke za utiske nemojte lepiti osetljiv sadržaj dokumenta.",
       },
       {
         question: "Mogu li anonimno da pošaljem utisak?",
         answer: "Da. Imejl je opcionalan i koristan samo ako želite odgovor.",
       },
       {
-        question: "Kako se podešavaju linkovi za preuzimanje?",
+        question: "Gde se nalaze instalacioni paketi?",
         answer:
-          "Javni linkovi za preuzimanje vode na downloads.faberpdf.com. Buduća izdanja mogu da promene te linkove bez promene prepoznavanja operativnog sistema.",
+          "Javni linkovi za preuzimanje vode na downloads.faberpdf.com, odvojeno za Windows, macOS i Linux.",
       },
     ],
     feedbackCta: "Otvori stranicu za utiske",
   },
   downloadPage: {
     metadata: {
-      title: "Preuzimanje",
+      title: "Preuzimanje FaberPDF-a",
       description:
-        "Preuzmite FaberPDF desktop izdanje za Windows, macOS ili Linux.",
+        "Preuzmite FaberPDF beta verziju za Windows, macOS ili Linux.",
     },
     eyebrow: "Preuzimanje",
-    title: "Preuzmite desktop paket za svoj operativni sistem.",
+    title: "Preuzmite FaberPDF beta verziju za svoj računar.",
     description:
-      "Otvorite ovu stranicu na računaru na kom želite da probate FaberPDF. Sajt prepoznaje operativni sistem, a izbor drugih platformi ostaje odmah pri ruci.",
+      "Otvorite ovu stranicu na računaru na kom želite da koristite FaberPDF. Sajt prepoznaje operativni sistem, a izbor drugih platformi ostaje odmah pri ruci.",
     badges: [
+      "Potpisivanje kvalifikovanim sertifikatom",
+      "Trenutno u beta verziji",
       "Windows, macOS i Linux",
-      "Lokalna desktop aplikacija",
-      "Javno izdanje za utiske",
     ],
     cardsTitle: "Pre instalacije",
     cardsDescription:
-      "Nekoliko praktičnih napomena za probu FaberPDF-a u stvarnom desktop toku rada.",
+      "Nekoliko praktičnih napomena pre rada sa stvarnim PDF dokumentima.",
     cards: [
       {
-        title: "Koristite odgovarajući desktop paket",
+        title: "Izaberite odgovarajući paket",
         description:
           "Glavni deo prati prepoznati operativni sistem. Ako detekcija promaši, izaberite drugu platformu ili format instalacije iz selektora.",
       },
       {
-        title: "Osetljivi PDF-ovi ostaju lokalno",
+        title: "Radite sa lokalnim fajlovima",
         description:
-          "Ovaj sajt hostuje instalacioni fajl. Uređivanje i pregled rade se u desktop aplikaciji.",
+          "Ovaj sajt nudi instalacioni fajl. Potpisivanje, uređivanje i pregled rade se u desktop aplikaciji.",
       },
       {
-        title: "Recite šta zapinje",
+        title: "Recite šta blokira vaš tok rada",
         description:
-          "Kratke poruke o instalaciji, paketima koji nedostaju ili platformskim problemima su korisne.",
+          "Kratke poruke o instalaciji, potpisivanju, paketima koji nedostaju ili platformskim problemima su korisne.",
       },
     ],
     feedbackTitle: "Nešto ne valja sa paketom?",
     feedbackDescription:
-      "Pošaljite napomenu sa stranice za utiske uz operativni sistem i verziju aplikacije.",
+      "Pošaljite napomenu uz operativni sistem, verziju aplikacije i korak na kom je problem nastao.",
     feedbackAction: "Pošalji utisak o preuzimanju",
   },
   download: {
@@ -751,22 +762,22 @@ const srLatn = {
     metadata: {
       title: "Utisci",
       description:
-        "Pošaljite anonimne FaberPDF utiske o greškama, frikciji, idejama i desktop toku rada.",
+        "Pošaljite FaberPDF beta utiske o potpisivanju, uređivanju, anotacijama, proveri i desktop toku rada.",
     },
-    title: "Recite šta treba sledeće da se promeni.",
+    title: "Pomozite da FaberPDF bolje pokrije stvaran PDF rad.",
     description:
-      "Pošaljite grešku, frikciju, prazninu u toku rada ili mali plus. Forma ide preko Formspree-a na imejl, a adresa za odgovor je opcionalna.",
+      "Pošaljite grešku, frikciju, prazninu u toku rada ili mali plus iz trenutne beta verzije. Adresa za odgovor je opcionalna.",
     formTitle: "Pošaljite utisak",
     formDescription:
-      "Kratke poruke su sasvim u redu. Konkretni primeri vrede najviše.",
+      "Kratke poruke su sasvim u redu. Konkretni primeri najlakše ulaze u razvoj.",
     badges: {
       anonymous: "Anonimno podrazumevano",
       emailOptional: "Imejl opcionalan",
     },
     tipsTitle: "Korisni utisci uključuju",
     tips: [
-      "Šta ste pokušavali da uradite.",
-      "Šta je delovalo sporo, nejasno ili pokvareno.",
+      "Koji PDF tok rada ste pokušavali da završite.",
+      "Šta je delovalo sporo, skriveno, nejasno ili pokvareno.",
       "Platformu i verziju aplikacije ako je važno.",
     ],
     form: {
@@ -790,7 +801,7 @@ const srLatn = {
       versionPlaceholder: siteConfig.betaVersion,
       messageLabel: "Vaš utisak",
       messagePlaceholder:
-        "Šta se desilo, šta je zapinjalo ili šta treba da bude lakše?",
+        "Šta se desilo, šta je zapinjalo ili koji PDF tok rada treba da bude lakši?",
       messageDescription: "Molimo ne lepite osetljiv sadržaj dokumenta.",
       emailLabel: "Imejl za odgovor",
       emailPlaceholder: "vi@example.com",
@@ -813,10 +824,10 @@ const srCyrl = {
   locale: "sr-Cyrl",
   htmlLang: "sr-Cyrl",
   metadata: {
-    defaultTitle: `${siteConfig.name} - Десктоп PDF едитор`,
+    defaultTitle: `${siteConfig.name} - PDF едитор за електронско потписивање`,
     titleTemplate: `%s - ${siteConfig.name}`,
     description:
-      "Локални десктоп PDF едитор за потписивање докумената, анотације, проверу PDF-ова и мале измене текста offline.",
+      "PDF едитор за потписивање квалификованим електронским сертификатом, уређивање, анотације и проверу докумената.",
   },
   navigation: [
     { label: "Функције", href: "/#features" },
@@ -832,7 +843,7 @@ const srCyrl = {
   },
   footer: {
     description:
-      "Десктоп PDF едитор за потписе, напомене, провере докумената и мале измене текста.",
+      "PDF едитор за квалификовано електронско потписивање, анотације, проверу и практичне измене докумената.",
     productHeading: "Производ",
     contactHeading: "Контакт",
     copyright: "Сва права задржана.",
@@ -900,82 +911,85 @@ const srCyrl = {
   home: {
     ...srLatn.home,
     hero: {
-      badge: "Јавно издање",
-      secondaryBadge: "Локални фајлови. Директно преузимање.",
+      badge: "Потписивање квалификованим електронским сертификатом",
+      secondaryBadge: "Тренутно у бета верзији",
       versionBadge: `Верзија ${siteConfig.betaVersion}`,
-      title: "Уређујте PDF на десктопу. Фајл остаје код вас.",
+      title:
+        "PDF едитор за потписивање квалификованим електронским сертификатом.",
       description:
-        "FaberPDF решава PDF послове који прекидају ток рада: потписе, анотације, провере докумената и циљане измене текста без слања фајла у сервис у облаку.",
+        "FaberPDF помаже да потпишете, проверите, означите и уредите PDF документе на рачунару, без слања фајлова кроз browser алат.",
       primaryAction: "Преузми за свој рачунар",
       secondaryAction: "Пошаљи утисак",
     },
     sections: {
-      featuresEyebrow: "Десктоп ток рада",
-      featuresTitle: "Свакодневни PDF посао треба да буде локалан и брз.",
+      featuresEyebrow: "Електронско потписивање и PDF рад",
+      featuresTitle:
+        "Потписивање и уређивање PDF-а без непотребног слања фајлова.",
       featuresDescription:
-        "Отворите фајл, направите измену, сачувајте га и наставите даље. Ово издање је бесплатно док се апликација обликује кроз стварно коришћење.",
-      screenshotsEyebrow: "Стварни екрани производа",
+        "Отворите документ на рачунару, потпишите га квалификованим сертификатом, додајте напомене или направите потребну измену и наставите даље.",
+      screenshotsEyebrow: "Стварни екран апликације",
       screenshotsTitle: "Погледајте апликацију пре инсталације.",
       screenshotsDescription:
-        "Страница користи стварне FaberPDF екране да посетилац разуме десктоп ток рада пре преузимања.",
-      previewEyebrow: "Обећање овог издања",
-      previewTitle: "Једноставан пут да пробате FaberPDF.",
+        "Страница приказује стварне FaberPDF екране да одмах видите како изгледа десктоп рад са документима.",
+      previewEyebrow: "Зашто пробати",
+      previewTitle:
+        "Један алат за потписивање, проверу и практичне PDF измене.",
       previewDescription:
-        "Јасна страница, прави десктоп пакет и једно место за корисне утиске.",
+        "FaberPDF је тренутно у бета верзији, али главна идеја је јасна: потписивање квалификованим електронским сертификатом и свакодневни PDF послови на рачунару.",
       downloadEyebrow: "Преузимање",
       downloadTitle: "Прави пакет за рачунар посетиоца.",
       downloadDescription:
         "Сајт препознаје Windows, macOS или Linux и држи одговарајуће инсталационе опције са downloads.faberpdf.com одмах уз клик.",
       feedbackEyebrow: "Утисци",
-      feedbackTitle: "Нешто је запињало? Пошаљите на посебној страници.",
+      feedbackTitle: "Помозите да бета верзија боље покрије стваран рад.",
       feedbackDescription:
-        "Утисци су анонимни подразумевано и преко Formspree-а стижу на имејл. Конкретан пример вреди више од савршено написане поруке.",
+        "Ако потписивање, провера, анотације или уређивање запињу, пошаљите кратак пример. Конкретна ситуација вреди више од савршено написане поруке.",
       trustEyebrow: "Поверење",
-      trustTitle: "Довољно јасно пре клика.",
+      trustTitle: "Десктоп апликација за документе, не upload страница.",
       trustDescription:
-        "Сајт је само маркетинг, преузимање и место за утиске. PDF посао се обавља у десктоп апликацији.",
+        "Сајт објашњава производ, нуди инсталационе пакете и прима утиске. PDF посао се обавља у десктоп апликацији.",
       faqEyebrow: "FAQ",
-      faqTitle: "Јасне границе за ово издање.",
+      faqTitle: "Шта треба знати пре преузимања.",
       faqDescription:
-        "Јасна страница производа, јасан избор инсталације и стварна петља за утиске.",
+        "Најважније информације о потписивању, локалном раду, избору инсталације и бета верзији.",
     },
     featurePillars: [
       {
-        title: "Потписујте и обележавајте PDF-ове локално",
+        title: "Потпишите PDF квалификованим сертификатом",
         description:
-          "Поставите потписе, додајте напомене и сачувајте завршене документе из десктоп апликације.",
+          "Користите FaberPDF за потписивање квалификованим електронским сертификатом у локалној десктоп апликацији.",
         icon: PenLineIcon,
       },
       {
-        title: "Исправите ситне текстуалне грешке",
+        title: "Уредите и означите документ",
         description:
-          "Направите циљане измене у постојећим PDF-овима без поновне израде целог документа.",
+          "Додајте напомене, означите важне делове и направите циљане измене без поновне израде целог PDF-а.",
         icon: TextCursorInputIcon,
       },
       {
-        title: "Документи остају на вашем рачунару",
+        title: "Фајл остаје на вашем рачунару",
         description:
-          "Преглед и уређивање могу остати у локалном току рада уместо да почну слањем фајла кроз прегледач.",
+          "Радите са документом у десктоп апликацији, уместо да сваки PDF прво шаљете кроз browser алат.",
         icon: LockKeyholeIcon,
       },
     ],
     previewCards: [
       {
-        title: "Бесплатно док утисци обликују апликацију",
+        title: "Тренутно у бета верзији",
         description:
-          "Ово издање служи да сазнамо шта корисницима стварно треба пре повратка плаћеног лансирања.",
+          "FaberPDF је тренутно у бета верзији и обликује се око стварних токова рада са PDF документима.",
         icon: BadgeCheckIcon,
       },
       {
-        title: "Анонимни утисци су добродошли",
+        title: "Потписивање као главни ток рада",
         description:
-          "Имејл је опционалан. Пошаљите грешку, фрикцију, ток рада који недостаје или кратку напомену.",
+          "Квалификовани електронски сертификат је у првом плану, уз уређивање, анотације и проверу докумената.",
         icon: MessageSquareTextIcon,
       },
       {
-        title: "Десктоп апликација на првом месту",
+        title: "Утисци без обавезне адресе",
         description:
-          "Сајт објашњава FaberPDF и нуди пакете. Уређивање се ради у апликацији.",
+          "Имејл је опционалан. Пошаљите грешку, фрикцију, ток рада који недостаје или кратку напомену.",
         icon: MonitorDownIcon,
       },
     ],
@@ -1000,93 +1014,99 @@ const srCyrl = {
       },
     ],
     trustPoints: [
+      "Потписивање квалификованим сертификатом",
+      "Тренутно у бета верзији",
+      "Локални рад са PDF документима",
       "Директно десктоп преузимање",
-      "Јавно издање без конфузије",
-      "Анонимни утисци",
-      "Локални PDF ток рада",
       "Windows, macOS и Linux пакети",
       "Стварни снимци екрана апликације",
     ],
     legalNotes: [
       {
-        title: "Локални производ",
+        title: "PDF рад је у десктоп апликацији",
         description:
-          "FaberPDF се позиционира око рада са фајловима на десктопу, не око слања PDF-ова на овај сајт.",
+          "FaberPDF је позициониран око рада са фајловима на рачунару, не око слања PDF-ова овом сајту.",
         icon: ShieldCheckIcon,
       },
       {
         title: "Утисци преко имејла",
         description:
-          "Утисци се шаљу кроз Formspree власнику сајта. Не лепите осетљив садржај PDF-а у поруку.",
+          "Утисци се шаљу кроз Formspree власнику сајта. Не лепите осетљив садржај документа у поруку.",
         icon: FileTextIcon,
       },
     ],
     faqItems: [
       {
-        question: "Да ли је ово издање бесплатно?",
+        question:
+          "Да ли FaberPDF подржава потписивање квалификованим електронским сертификатом?",
         answer:
-          "Да. Преузмите тренутни десктоп пакет директно са downloads.faberpdf.com.",
+          "Да. То је главни ток рада за регионалне кориснике, уз додатне PDF функције као што су анотације, провера и циљане измене.",
       },
       {
         question: "Да ли је FaberPDF веб PDF едитор?",
         answer:
-          "Не. FaberPDF је десктоп PDF едитор. Сајт објашњава производ, нуди линкове за преузимање и прикупља утиске.",
+          "Не. FaberPDF је десктоп PDF едитор. Сајт служи за објашњење производа, преузимање инсталационих пакета и слање утисака.",
       },
       {
-        question: "Да ли ће финална верзија бити бесплатна?",
+        question: "Да ли је апликација већ доступна?",
         answer:
-          "Комерцијални модел за стабилну верзију може да се одлучи касније. Овај пројекат је намерно фокусиран на бесплатно јавно издање.",
+          "Да. FaberPDF је тренутно у бета верзији, а актуелни десктоп пакет можете преузети директно са downloads.faberpdf.com.",
+      },
+      {
+        question: "Да ли документ остаје локално?",
+        answer:
+          "PDF рад се обавља у десктоп апликацији. У поруке за утиске немојте лепити осетљив садржај документа.",
       },
       {
         question: "Могу ли анонимно да пошаљем утисак?",
         answer: "Да. Имејл је опционалан и користан само ако желите одговор.",
       },
       {
-        question: "Како се подешавају линкови за преузимање?",
+        question: "Где се налазе инсталациони пакети?",
         answer:
-          "Јавни линкови за преузимање воде на downloads.faberpdf.com. Будућа издања могу да промене те линкове без промене препознавања оперативног система.",
+          "Јавни линкови за преузимање воде на downloads.faberpdf.com, одвојено за Windows, macOS и Linux.",
       },
     ],
     feedbackCta: "Отвори страницу за утиске",
   },
   downloadPage: {
     metadata: {
-      title: "Преузимање",
+      title: "Преузимање FaberPDF-а",
       description:
-        "Преузмите FaberPDF десктоп издање за Windows, macOS или Linux.",
+        "Преузмите FaberPDF бета верзију за Windows, macOS или Linux.",
     },
     eyebrow: "Преузимање",
-    title: "Преузмите десктоп пакет за свој оперативни систем.",
+    title: "Преузмите FaberPDF бета верзију за свој рачунар.",
     description:
-      "Отворите ову страницу на рачунару на ком желите да пробате FaberPDF. Сајт препознаје оперативни систем, а избор других платформи остаје одмах при руци.",
+      "Отворите ову страницу на рачунару на ком желите да користите FaberPDF. Сајт препознаје оперативни систем, а избор других платформи остаје одмах при руци.",
     badges: [
+      "Потписивање квалификованим сертификатом",
+      "Тренутно у бета верзији",
       "Windows, macOS и Linux",
-      "Локална десктоп апликација",
-      "Јавно издање за утиске",
     ],
     cardsTitle: "Пре инсталације",
     cardsDescription:
-      "Неколико практичних напомена за пробу FaberPDF-а у стварном десктоп току рада.",
+      "Неколико практичних напомена пре рада са стварним PDF документима.",
     cards: [
       {
-        title: "Користите одговарајући десктоп пакет",
+        title: "Изаберите одговарајући пакет",
         description:
           "Главни део прати препознати оперативни систем. Ако детекција промаши, изаберите другу платформу или формат инсталације из селектора.",
       },
       {
-        title: "Осетљиви PDF-ови остају локално",
+        title: "Радите са локалним фајловима",
         description:
-          "Овај сајт нуди инсталациони фајл. Уређивање и преглед раде се у десктоп апликацији.",
+          "Овај сајт нуди инсталациони фајл. Потписивање, уређивање и преглед раде се у десктоп апликацији.",
       },
       {
-        title: "Реците шта запиње",
+        title: "Реците шта блокира ваш ток рада",
         description:
-          "Кратке поруке о инсталацији, пакетима који недостају или платформским проблемима су корисне.",
+          "Кратке поруке о инсталацији, потписивању, пакетима који недостају или платформским проблемима су корисне.",
       },
     ],
     feedbackTitle: "Нешто не ваља са пакетом?",
     feedbackDescription:
-      "Пошаљите напомену са странице за утиске уз оперативни систем и верзију апликације.",
+      "Пошаљите напомену уз оперативни систем, верзију апликације и корак на ком је проблем настао.",
     feedbackAction: "Пошаљи утисак о преузимању",
   },
   download: {
@@ -1141,22 +1161,22 @@ const srCyrl = {
     metadata: {
       title: "Утисци",
       description:
-        "Пошаљите анонимне FaberPDF утиске о грешкама, фрикцији, идејама и десктоп току рада.",
+        "Пошаљите FaberPDF бета утиске о потписивању, уређивању, анотацијама, провери и десктоп току рада.",
     },
-    title: "Реците шта треба следеће да се промени.",
+    title: "Помозите да FaberPDF боље покрије стваран PDF рад.",
     description:
-      "Пошаљите грешку, фрикцију, празнину у току рада или мали плус. Форма иде преко Formspree-а на имејл, а адреса за одговор је опционална.",
+      "Пошаљите грешку, фрикцију, празнину у току рада или мали плус из тренутне бета верзије. Адреса за одговор је опционална.",
     formTitle: "Пошаљите утисак",
     formDescription:
-      "Кратке поруке су сасвим у реду. Конкретни примери вреде највише.",
+      "Кратке поруке су сасвим у реду. Конкретни примери најлакше улазе у развој.",
     badges: {
       anonymous: "Анонимно подразумевано",
       emailOptional: "Имејл опционалан",
     },
     tipsTitle: "Корисни утисци укључују",
     tips: [
-      "Шта сте покушавали да урадите.",
-      "Шта је деловало споро, нејасно или покварено.",
+      "Који PDF ток рада сте покушавали да завршите.",
+      "Шта је деловало споро, скривено, нејасно или покварено.",
       "Платформу и верзију апликације ако је важно.",
     ],
     form: {
@@ -1180,7 +1200,7 @@ const srCyrl = {
       versionLabel: "Верзија апликације",
       messageLabel: "Ваш утисак",
       messagePlaceholder:
-        "Шта се десило, шта је запињало или шта треба да буде лакше?",
+        "Шта се десило, шта је запињало или који PDF ток рада треба да буде лакши?",
       messageDescription: "Молимо не лепите осетљив садржај документа.",
       emailLabel: "Имејл за одговор",
       emailDescription:
@@ -1206,10 +1226,10 @@ const bs = {
     toggleTheme: "Promijeni temu",
   },
   metadata: {
-    defaultTitle: `${siteConfig.name} - Desktop PDF editor`,
+    defaultTitle: `${siteConfig.name} - PDF editor za elektronsko potpisivanje`,
     titleTemplate: `%s - ${siteConfig.name}`,
     description:
-      "Lokalni desktop PDF editor za potpisivanje dokumenata, anotacije, provjeru PDF-ova i male izmjene teksta offline.",
+      "PDF editor za potpisivanje kvalifikovanim elektronskim certifikatom, uređivanje, anotacije i provjeru dokumenata.",
   },
   navigation: [
     { label: "Funkcije", href: "/#features" },
@@ -1268,60 +1288,94 @@ const bs = {
       },
     },
   },
+  footer: {
+    description:
+      "PDF editor za kvalifikovano elektronsko potpisivanje, anotacije, provjeru i praktične izmjene dokumenata.",
+    productHeading: "Proizvod",
+    contactHeading: "Kontakt",
+    copyright: "Sva prava zadržana.",
+  },
+  productWorkspace: {
+    editorAlt: "FaberPDF editor sa otvorenim PDF-om",
+    welcomeAlt: "FaberPDF početni ekran",
+    editorBadge: "PDF editor",
+    welcomeBadge: "Desktop aplikacija",
+  },
   home: {
     ...srLatn.home,
     hero: {
-      ...srLatn.home.hero,
-      title: "Uređujte PDF na desktopu. Fajl ostaje kod vas.",
+      badge: "Potpisivanje kvalifikovanim elektronskim certifikatom",
+      secondaryBadge: "Trenutno u beta verziji",
+      versionBadge: `Verzija ${siteConfig.betaVersion}`,
+      title:
+        "PDF editor za potpisivanje kvalifikovanim elektronskim certifikatom.",
       description:
-        "FaberPDF rješava PDF poslove koji prekidaju tok rada: potpise, anotacije, provjere dokumenata i ciljane izmjene teksta bez slanja fajla u servis u oblaku.",
+        "FaberPDF pomaže da potpišete, provjerite, označite i uredite PDF dokumente na računaru, bez slanja fajlova kroz browser alat.",
+      primaryAction: "Preuzmi FaberPDF",
+      secondaryAction: "Pošalji utisak",
     },
     sections: {
       ...srLatn.home.sections,
+      featuresEyebrow: "Elektronsko potpisivanje i PDF rad",
+      featuresTitle:
+        "Potpisivanje i uređivanje PDF-a bez nepotrebnog slanja fajlova.",
       featuresDescription:
-        "Otvorite fajl, napravite izmjenu, sačuvajte ga i nastavite dalje. Ovo izdanje je besplatno dok se aplikacija oblikuje kroz stvarno korištenje.",
+        "Otvorite dokument na računaru, potpišite ga kvalifikovanim certifikatom, dodajte napomene ili napravite potrebnu izmjenu i nastavite dalje.",
+      screenshotsEyebrow: "Stvarni ekran aplikacije",
+      screenshotsDescription:
+        "Stranica prikazuje stvarne FaberPDF ekrane da odmah vidite kako izgleda desktop rad sa dokumentima.",
+      previewEyebrow: "Zašto probati",
+      previewTitle:
+        "Jedan alat za potpisivanje, provjeru i praktične PDF izmjene.",
       previewDescription:
-        "Jasna stranica, pravi desktop paket i jedno mjesto za korisne utiske.",
+        "FaberPDF je trenutno u beta verziji, ali glavna ideja je jasna: potpisivanje kvalifikovanim elektronskim certifikatom i svakodnevni PDF poslovi na računaru.",
+      downloadTitle: "Preuzmite paket za svoj operativni sistem.",
+      feedbackTitle: "Pomozite da beta verzija bolje pokrije stvaran rad.",
       feedbackDescription:
-        "Utisci su anonimni podrazumijevano i preko Formspree-a stižu na imejl. Konkretan primjer vrijedi više od savršeno napisane poruke.",
+        "Ako potpisivanje, provjera, anotacije ili uređivanje zapinju, pošaljite kratak primjer. Konkretna situacija vrijedi više od savršeno napisane poruke.",
+      trustTitle: "Desktop aplikacija za dokumente, ne upload stranica.",
+      trustDescription:
+        "Sajt objašnjava proizvod, nudi instalacione pakete i prima utiske. PDF posao se obavlja u desktop aplikaciji.",
+      faqDescription:
+        "Najvažnije informacije o potpisivanju, lokalnom radu i beta verziji.",
     },
     featurePillars: [
       {
-        title: "Potpisujte i označavajte PDF-ove lokalno",
+        title: "Potpišite PDF kvalifikovanim certifikatom",
         description:
-          "Postavite potpise, dodajte napomene i sačuvajte završene dokumente iz desktop aplikacije.",
+          "Koristite FaberPDF za potpisivanje kvalifikovanim elektronskim certifikatom u lokalnoj desktop aplikaciji.",
         icon: PenLineIcon,
       },
       {
-        title: "Ispravite sitne tekstualne greške",
+        title: "Uredite i označite dokument",
         description:
-          "Napravite ciljane izmjene u postojećim PDF-ovima bez ponovne izrade cijelog dokumenta.",
+          "Dodajte napomene, označite važne dijelove i napravite ciljane izmjene bez ponovne izrade cijelog PDF-a.",
         icon: TextCursorInputIcon,
       },
       {
-        title: "Dokumenti ostaju na vašem računaru",
+        title: "Fajl ostaje na vašem računaru",
         description:
-          "Pregled i uređivanje mogu ostati u lokalnom toku rada umjesto da počnu slanjem fajla kroz pregledač.",
+          "Radite sa dokumentom u desktop aplikaciji, umjesto da svaki PDF prvo šaljete kroz browser alat.",
         icon: LockKeyholeIcon,
       },
     ],
     previewCards: [
       {
-        title: "Besplatno dok utisci oblikuju aplikaciju",
+        title: "Trenutno u beta verziji",
         description:
-          "Ovo izdanje služi da saznamo šta korisnicima stvarno treba prije povratka plaćenog lansiranja.",
+          "FaberPDF je trenutno u beta verziji i oblikuje se oko stvarnih tokova rada sa PDF dokumentima.",
         icon: BadgeCheckIcon,
       },
       {
-        title: "Anonimni utisci su dobrodošli",
+        title: "Potpisivanje kao glavni tok rada",
         description:
-          "Imejl je opcionalan. Pošaljite grešku, frikciju, tok rada koji nedostaje ili kratku napomenu.",
+          "Kvalifikovani elektronski certifikat je u prvom planu, uz uređivanje, anotacije i provjeru dokumenata.",
         icon: MessageSquareTextIcon,
       },
       {
-        title: "Desktop aplikacija na prvom mjestu",
+        title: "Utisci bez obavezne adrese",
         description:
-          "Sajt objašnjava FaberPDF i hostuje pakete. Uređivanje se radi u aplikaciji.",
+          "Imejl je opcionalan. Pošaljite grešku, frikciju, tok rada koji nedostaje ili kratku napomenu.",
         icon: MonitorDownIcon,
       },
     ],
@@ -1344,82 +1398,97 @@ const bs = {
         icon: LightbulbIcon,
       },
     ],
+    trustPoints: [
+      "Potpisivanje kvalifikovanim certifikatom",
+      "Trenutno u beta verziji",
+      "Lokalni rad sa PDF dokumentima",
+      "Direktno desktop preuzimanje",
+      "Windows, macOS i Linux paketi",
+      "Stvarni snimci ekrana aplikacije",
+    ],
     legalNotes: [
       {
-        title: "Lokalni proizvod",
+        title: "PDF rad je u desktop aplikaciji",
         description:
-          "FaberPDF se pozicionira oko rada sa fajlovima na desktopu, ne oko slanja PDF-ova na ovaj sajt.",
+          "FaberPDF je pozicioniran oko rada sa fajlovima na računaru, ne oko slanja PDF-ova ovom sajtu.",
         icon: ShieldCheckIcon,
       },
       {
         title: "Utisci preko imejla",
         description:
-          "Utisci se šalju kroz Formspree vlasniku sajta. Ne lijepite osjetljiv sadržaj PDF-a u poruku.",
+          "Utisci se šalju kroz Formspree vlasniku sajta. Ne lijepite osjetljiv sadržaj dokumenta u poruku.",
         icon: FileTextIcon,
       },
     ],
     faqItems: [
       {
-        question: "Da li je ovo izdanje besplatno?",
+        question:
+          "Da li FaberPDF podržava potpisivanje kvalifikovanim elektronskim certifikatom?",
         answer:
-          "Da. Preuzmite trenutni desktop paket direktno sa downloads.faberpdf.com.",
+          "Da. To je glavni tok rada za regionalne korisnike, uz dodatne PDF funkcije kao što su anotacije, provjera i ciljane izmjene.",
       },
       {
         question: "Da li je FaberPDF web PDF editor?",
         answer:
-          "Ne. FaberPDF je desktop PDF editor. Sajt objašnjava proizvod, hostuje linkove za preuzimanje i prikuplja utiske.",
+          "Ne. FaberPDF je desktop PDF editor. Sajt služi za objašnjenje proizvoda, preuzimanje instalacionih paketa i slanje utisaka.",
       },
       {
-        question: "Da li će finalna verzija biti besplatna?",
+        question: "Da li je aplikacija već dostupna?",
         answer:
-          "Komercijalni model za stabilnu verziju može da se odluči kasnije. Ovaj projekat je namjerno fokusiran na besplatno javno izdanje.",
+          "Da. FaberPDF je trenutno u beta verziji, a aktuelni desktop paket možete preuzeti direktno sa downloads.faberpdf.com.",
+      },
+      {
+        question: "Da li dokument ostaje lokalno?",
+        answer:
+          "PDF rad se obavlja u desktop aplikaciji. U poruke za utiske nemojte lijepiti osjetljiv sadržaj dokumenta.",
       },
       {
         question: "Mogu li anonimno poslati utisak?",
         answer: "Da. Imejl je opcionalan i koristan samo ako želite odgovor.",
       },
       {
-        question: "Kako se podešavaju linkovi za preuzimanje?",
+        question: "Gdje se nalaze instalacioni paketi?",
         answer:
-          "Javni linkovi za preuzimanje vode na downloads.faberpdf.com. Buduća izdanja mogu promijeniti te linkove bez promjene prepoznavanja operativnog sistema.",
+          "Javni linkovi za preuzimanje vode na downloads.faberpdf.com, odvojeno za Windows, macOS i Linux.",
       },
     ],
   },
   downloadPage: {
     ...srLatn.downloadPage,
     metadata: {
-      title: "Preuzimanje",
+      title: "Preuzimanje FaberPDF-a",
       description:
-        "Preuzmite FaberPDF desktop izdanje za Windows, macOS ili Linux.",
+        "Preuzmite FaberPDF beta verziju za Windows, macOS ili Linux.",
     },
+    title: "Preuzmite FaberPDF beta verziju za svoj računar.",
     description:
-      "Otvorite ovu stranicu na računaru na kojem želite probati FaberPDF. Sajt prepoznaje operativni sistem, a izbor drugih platformi ostaje odmah pri ruci.",
+      "Otvorite ovu stranicu na računaru na kojem želite koristiti FaberPDF. Sajt prepoznaje operativni sistem, a izbor drugih platformi ostaje odmah pri ruci.",
     badges: [
+      "Potpisivanje kvalifikovanim certifikatom",
+      "Trenutno u beta verziji",
       "Windows, macOS i Linux",
-      "Lokalna desktop aplikacija",
-      "Javno izdanje za utiske",
     ],
     cardsDescription:
-      "Nekoliko praktičnih napomena za probu FaberPDF-a u stvarnom desktop toku rada.",
+      "Nekoliko praktičnih napomena prije rada sa stvarnim PDF dokumentima.",
     cards: [
       {
-        title: "Koristite odgovarajući desktop paket",
+        title: "Izaberite odgovarajući paket",
         description:
           "Glavni dio prati prepoznati operativni sistem. Ako detekcija promaši, izaberite drugu platformu ili format instalacije iz selektora.",
       },
       {
-        title: "Osjetljivi PDF-ovi ostaju lokalno",
+        title: "Radite sa lokalnim fajlovima",
         description:
-          "Ovaj sajt hostuje instalacioni fajl. Uređivanje i pregled rade se u desktop aplikaciji.",
+          "Ovaj sajt nudi instalacioni fajl. Potpisivanje, uređivanje i pregled rade se u desktop aplikaciji.",
       },
       {
-        title: "Recite šta zapinje",
+        title: "Recite šta blokira vaš tok rada",
         description:
-          "Kratke poruke o instalaciji, paketima koji nedostaju ili platformskim problemima su korisne.",
+          "Kratke poruke o instalaciji, potpisivanju, paketima koji nedostaju ili platformskim problemima su korisne.",
       },
     ],
     feedbackDescription:
-      "Pošaljite napomenu sa stranice za utiske uz operativni sistem i verziju aplikacije.",
+      "Pošaljite napomenu uz operativni sistem, verziju aplikacije i korak na kojem je problem nastao.",
   },
   download: {
     ...srLatn.download,
@@ -1443,21 +1512,24 @@ const bs = {
     },
     unsupportedAlertDescription:
       "Mobilnim posjetiocima se ne prikazuje dugme za preuzimanje jer FaberPDF trenutno izlazi samo za Windows, macOS i Linux.",
+    noteDescription:
+      "Glavno dugme otvara aktuelni instalacioni fajl iz FaberPDF download storage-a.",
   },
   feedback: {
     ...srLatn.feedback,
     metadata: {
       title: "Utisci",
       description:
-        "Pošaljite anonimne FaberPDF utiske o greškama, frikciji, idejama i desktop toku rada.",
+        "Pošaljite FaberPDF beta utiske o potpisivanju, uređivanju, anotacijama, provjeri i desktop toku rada.",
     },
+    title: "Pomozite da FaberPDF bolje pokrije stvaran PDF rad.",
     description:
-      "Pošaljite grešku, frikciju, prazninu u toku rada ili mali plus. Forma ide preko Formspree-a na imejl, a adresa za odgovor je opcionalna.",
+      "Pošaljite grešku, frikciju, prazninu u toku rada ili mali plus iz trenutne beta verzije. Adresa za odgovor je opcionalna.",
     formDescription:
-      "Kratke poruke su sasvim u redu. Konkretni primjeri vrijede najviše.",
+      "Kratke poruke su sasvim u redu. Konkretni primjeri najlakše ulaze u razvoj.",
     tips: [
-      "Šta ste pokušavali uraditi.",
-      "Šta je djelovalo sporo, nejasno ili pokvareno.",
+      "Koji PDF tok rada ste pokušavali završiti.",
+      "Šta je djelovalo sporo, skriveno, nejasno ili pokvareno.",
       "Platformu i verziju aplikacije ako je važno.",
     ],
     form: {
@@ -1465,7 +1537,7 @@ const bs = {
       categoryDescription:
         "Izaberite najbližu kategoriju da poruka lakše uđe u trijažu.",
       messagePlaceholder:
-        "Šta se desilo, šta je zapinjalo ili šta treba biti lakše?",
+        "Šta se desilo, šta je zapinjalo ili koji PDF tok rada treba biti lakši?",
       messageDescription: "Molimo ne lijepite osjetljiv sadržaj dokumenta.",
     },
   },
