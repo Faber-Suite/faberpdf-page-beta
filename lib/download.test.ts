@@ -2,16 +2,43 @@ import { describe, expect, it } from "vitest"
 
 import {
   detectDownloadPlatform,
+  getDownloadOptions,
   getDownloadButtonModel,
+  getDownloadState,
   getRecommendedDownload,
   type DownloadButtonCopy,
   type DownloadItem,
 } from "@/lib/download"
 
 const downloads: DownloadItem[] = [
-  { href: "https://example.com/faberpdf.exe", platform: "windows" },
-  { href: "https://example.com/faberpdf.tar.gz", platform: "macos" },
-  { href: "https://example.com/faberpdf.AppImage", platform: "linux" },
+  {
+    href: "https://example.com/faberpdf.exe",
+    platform: "windows",
+    options: [
+      { href: "https://example.com/faberpdf.exe", label: "Windows setup" },
+      { href: "https://example.com/faberpdf.msi", label: "Windows MSI" },
+    ],
+  },
+  {
+    href: "",
+    platform: "macos",
+    options: [
+      {
+        href: "https://example.com/faberpdf-aarch64.dmg",
+        label: "Apple Silicon",
+      },
+      { href: "https://example.com/faberpdf-x64.dmg", label: "Intel Mac" },
+    ],
+  },
+  {
+    href: "https://example.com/faberpdf.AppImage",
+    platform: "linux",
+    options: [
+      { href: "https://example.com/faberpdf.AppImage", label: "AppImage" },
+      { href: "https://example.com/faberpdf.deb", label: "Debian/Ubuntu" },
+      { href: "https://example.com/faberpdf.rpm", label: "Fedora/RHEL" },
+    ],
+  },
 ]
 
 describe("detectDownloadPlatform", () => {
@@ -59,6 +86,19 @@ describe("getRecommendedDownload", () => {
   })
 })
 
+describe("getDownloadOptions", () => {
+  it("returns every configured installer option for a desktop platform", () => {
+    expect(getDownloadOptions(downloads, "windows")).toEqual(
+      downloads[0].options
+    )
+  })
+
+  it("does not return desktop installer options for mobile or unknown visitors", () => {
+    expect(getDownloadOptions(downloads, "mobile")).toEqual([])
+    expect(getDownloadOptions(downloads, "unknown")).toEqual([])
+  })
+})
+
 describe("getDownloadState", () => {
   it("marks mobile devices as unsupported instead of offering a download action", async () => {
     const downloadModule =
@@ -74,11 +114,19 @@ describe("getDownloadState", () => {
       status: "unsupported",
     })
   })
+
+  it("requires a manual macOS installer choice when architecture is not safe to infer", () => {
+    expect(getDownloadState(downloads, "macos")).toEqual({
+      download: downloads[1],
+      status: "choices",
+    })
+  })
 })
 
 describe("getDownloadButtonModel", () => {
   const copy: DownloadButtonCopy = {
     button: "Download for {platform}",
+    chooseButton: "Choose {platform} installer",
     unsupportedButton: "Your OS is not supported",
   }
 
@@ -104,6 +152,17 @@ describe("getDownloadButtonModel", () => {
       disabled: true,
       href: null,
       label: "Download for Windows",
+    })
+  })
+
+  it("asks macOS visitors to choose an installer instead of guessing CPU architecture", () => {
+    expect(
+      getDownloadButtonModel(downloads, "macos", "macOS", copy)
+    ).toMatchObject({
+      disabled: false,
+      href: null,
+      label: "Choose macOS installer",
+      status: "choices",
     })
   })
 

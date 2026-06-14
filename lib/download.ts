@@ -10,19 +10,27 @@ export type DesktopDownloadPlatform = Exclude<
   "mobile" | "unknown"
 >
 
+export type DownloadOption = {
+  href: string
+  label: string
+}
+
 export type DownloadItem = {
   href: string
+  options?: DownloadOption[]
   platform: DesktopDownloadPlatform
 }
 
 export type DownloadState =
   | { download: DownloadItem; status: "available" }
+  | { download: DownloadItem; status: "choices" }
   | { status: "pending" }
   | { status: "unknown" }
   | { status: "unsupported" }
 
 export type DownloadButtonCopy = {
   button: string
+  chooseButton: string
   unsupportedButton: string
 }
 
@@ -41,6 +49,26 @@ type PlatformDetectionInput = {
 
 function normalize(value: string | undefined) {
   return value?.toLowerCase() ?? ""
+}
+
+function hasHref(value: string | undefined) {
+  return Boolean(value?.trim())
+}
+
+function getAvailableOptions(download: DownloadItem | undefined) {
+  if (!download) {
+    return []
+  }
+
+  const options = download.options?.filter((option) => hasHref(option.href))
+
+  if (options?.length) {
+    return options
+  }
+
+  return hasHref(download.href)
+    ? [{ href: download.href, label: download.platform }]
+    : []
 }
 
 export function detectDownloadPlatform({
@@ -76,6 +104,19 @@ export function detectDownloadPlatform({
   return "unknown"
 }
 
+export function getDownloadOptions(
+  downloads: DownloadItem[],
+  platform: DownloadPlatform
+) {
+  if (platform === "unknown" || platform === "mobile") {
+    return []
+  }
+
+  const download = downloads.find((item) => item.platform === platform)
+
+  return getAvailableOptions(download)
+}
+
 export function getRecommendedDownload(
   downloads: DownloadItem[],
   platform: DownloadPlatform
@@ -86,7 +127,7 @@ export function getRecommendedDownload(
 
   const download = downloads.find((item) => item.platform === platform)
 
-  return download?.href ? download : null
+  return hasHref(download?.href) ? download : null
 }
 
 export function getDownloadState(
@@ -101,9 +142,23 @@ export function getDownloadState(
     return { status: "unknown" }
   }
 
+  const configuredDownload = downloads.find(
+    (item) => item.platform === platform
+  )
   const download = getRecommendedDownload(downloads, platform)
 
-  return download ? { download, status: "available" } : { status: "pending" }
+  if (download) {
+    return { download, status: "available" }
+  }
+
+  if (
+    configuredDownload &&
+    getAvailableOptions(configuredDownload).length > 0
+  ) {
+    return { download: configuredDownload, status: "choices" }
+  }
+
+  return { status: "pending" }
 }
 
 export function getDownloadButtonModel(
@@ -127,6 +182,15 @@ export function getDownloadButtonModel(
   }
 
   const label = copy.button.replace("{platform}", platformLabel)
+
+  if (downloadState.status === "choices") {
+    return {
+      disabled: false,
+      href: null,
+      label: copy.chooseButton.replace("{platform}", platformLabel),
+      status: downloadState.status,
+    }
+  }
 
   if (downloadState.status === "available") {
     return {

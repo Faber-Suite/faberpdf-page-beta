@@ -70,6 +70,7 @@ export default async function Page({ params }: LocalePageProps) {
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <DetectedDownloadButton
+                downloadPageHref={localizePath(locale, "/download")}
                 downloads={downloadItems}
                 messages={dictionary.download}
                 size="lg"

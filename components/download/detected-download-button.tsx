@@ -1,7 +1,13 @@
 "use client"
 
 import * as React from "react"
-import { ArrowDownToLineIcon, ClockIcon, MonitorDownIcon } from "lucide-react"
+import {
+  ArrowDownToLineIcon,
+  ArrowRightIcon,
+  ClockIcon,
+  MonitorDownIcon,
+} from "lucide-react"
+import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -14,10 +20,11 @@ import type { Dictionary } from "@/lib/i18n"
 
 type DetectedDownloadButtonProps = {
   className?: string
+  downloadPageHref?: string
   downloads: DownloadItem[]
   messages: Pick<
     Dictionary["download"],
-    "button" | "platformNames" | "unsupportedButton"
+    "button" | "chooseButton" | "platformNames" | "unsupportedButton"
   >
   size?: React.ComponentProps<typeof Button>["size"]
 }
@@ -50,6 +57,7 @@ function getServerPlatformSnapshot(): DownloadPlatform {
 
 export function DetectedDownloadButton({
   className,
+  downloadPageHref,
   downloads,
   messages,
   size = "default",
@@ -67,21 +75,38 @@ export function DetectedDownloadButton({
         messages.platformNames[detectedPlatform],
         {
           button: messages.button,
+          chooseButton: messages.chooseButton,
           unsupportedButton: messages.unsupportedButton,
         }
       ),
     [detectedPlatform, downloads, messages]
   )
 
-  if (buttonModel.href) {
+  const choiceHref =
+    buttonModel.status === "choices" ? downloadPageHref : undefined
+  const href = buttonModel.href ?? choiceHref
+
+  if (href) {
+    const isInstallerDownload = Boolean(buttonModel.href)
+
     return (
       <Button
-        render={<a href={buttonModel.href} download />}
+        render={
+          isInstallerDownload ? (
+            <a href={href} download />
+          ) : (
+            <Link href={href} />
+          )
+        }
         nativeButton={false}
         className={className}
         size={size}
       >
-        <ArrowDownToLineIcon data-icon="inline-start" />
+        {isInstallerDownload ? (
+          <ArrowDownToLineIcon data-icon="inline-start" />
+        ) : (
+          <ArrowRightIcon data-icon="inline-start" />
+        )}
         {buttonModel.label}
       </Button>
     )

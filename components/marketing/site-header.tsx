@@ -60,6 +60,7 @@ export function SiteHeader({ dictionary, locale }: SiteHeaderProps) {
             {dictionary.header.feedback}
           </Button>
           <DetectedDownloadButton
+            downloadPageHref={localizePath(locale, "/download")}
             downloads={downloadItems}
             messages={dictionary.download}
             size="sm"

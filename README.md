@@ -29,13 +29,20 @@ Download buttons default to the public Cloudflare R2 URLs on
 
 ```bash
 https://downloads.faberpdf.com/windows/FaberPDF_0.1.0_x64-setup.exe
+https://downloads.faberpdf.com/windows/FaberPDF_0.1.0_x64_en-US.msi
+https://downloads.faberpdf.com/macos/FaberPDF_0.1.0_aarch64.dmg
+https://downloads.faberpdf.com/macos/FaberPDF_0.1.0_x64.dmg
 https://downloads.faberpdf.com/macos/FaberPDF.app.tar.gz
 https://downloads.faberpdf.com/linux/FaberPDF_0.1.0_amd64.AppImage
+https://downloads.faberpdf.com/linux/FaberPDF_0.1.0_amd64.deb
+https://downloads.faberpdf.com/linux/FaberPDF-0.1.0-1.x86_64.rpm
 ```
 
+The primary package environment variables are
 `NEXT_PUBLIC_FABERPDF_WINDOWS_URL`, `NEXT_PUBLIC_FABERPDF_MACOS_URL`, and
-`NEXT_PUBLIC_FABERPDF_LINUX_URL` can still override those defaults for a future
-release or staging deployment.
+`NEXT_PUBLIC_FABERPDF_LINUX_URL`. Additional optional overrides cover the MSI,
+macOS Apple Silicon DMG, macOS Intel DMG, DEB, and RPM packages. See
+`.env.example` for the full list.
 
 ## Checks
 

@@ -99,9 +99,9 @@ const en = {
       previewDescription:
         "A clear page, the right desktop build, and one place to tell us what needs work.",
       downloadEyebrow: "Download",
-      downloadTitle: "One button for the visitor's operating system.",
+      downloadTitle: "The right package for the visitor's desktop.",
       downloadDescription:
-        "The site detects Windows, macOS, or Linux and points people to the matching installer hosted on downloads.faberpdf.com.",
+        "The site detects Windows, macOS, or Linux and keeps the matching installer choices hosted on downloads.faberpdf.com close to the click.",
       feedbackEyebrow: "Feedback",
       feedbackTitle: "Found something rough? Send it from a dedicated page.",
       feedbackDescription:
@@ -113,7 +113,7 @@ const en = {
       faqEyebrow: "FAQ",
       faqTitle: "Clear boundaries for this preview.",
       faqDescription:
-        "A plain product page, one download path, and a real feedback loop.",
+        "A plain product page, clear installer choices, and a real feedback loop.",
     },
     featurePillars: [
       {
@@ -247,7 +247,7 @@ const en = {
       {
         title: "Use the matching desktop build",
         description:
-          "The primary button follows the detected operating system. If detection misses, choose another platform from the selector.",
+          "The primary area follows the detected operating system. If detection misses, choose another platform or installer format from the selector.",
       },
       {
         title: "Keep sensitive PDFs local",
@@ -274,16 +274,17 @@ const en = {
       windows: "Windows",
     },
     formats: {
-      linux: "AppImage or archive",
-      macos: ".app archive",
-      windows: ".exe installer",
+      linux: "AppImage, DEB, or RPM",
+      macos: "Apple Silicon or Intel DMG",
+      windows: ".exe or .msi installer",
     },
     details: {
-      linux: "Direct AppImage build for Linux desktops.",
-      macos: "Compressed FaberPDF app archive for macOS desktops.",
+      linux: "Choose AppImage, Debian/Ubuntu, or Fedora/RHEL packaging.",
+      macos:
+        "Choose Apple Silicon for M-series Macs, or Intel for older x64 Macs.",
       mobile:
         "FaberPDF is a desktop app. Open this page on Windows, macOS, or Linux to download the matching build.",
-      windows: "For Windows 10 and newer desktop machines.",
+      windows: "Choose the standard setup app or MSI package for deployment.",
       unknown:
         "Open this page on Windows, macOS, or Linux, or choose a desktop platform.",
     },
@@ -291,6 +292,7 @@ const en = {
     selectLabel: "Different OS?",
     selectPlaceholder: "Choose OS",
     recommendedBadge: "Recommended",
+    chooseBadge: "Choose installer",
     pendingBadge: "Link pending",
     unsupportedBadge: "Not supported",
     unsupportedTitle: "Your device is not supported",
@@ -300,12 +302,13 @@ const en = {
     unsupportedAlertDescription:
       "Mobile visitors do not see a download button because FaberPDF currently ships only for Windows, macOS, and Linux.",
     button: "Download for {platform}",
+    chooseButton: "Choose {platform} installer",
     unsupportedButton: "Your OS is not supported",
     pendingButton: "Installer link pending",
     unknownButton: "Choose a desktop OS",
     noteTitle: "Installers are hosted on downloads.faberpdf.com",
     noteDescription:
-      "The primary button opens the matching installer from FaberPDF download storage.",
+      "The download choices open the matching installer files from FaberPDF download storage.",
   },
   feedback: {
     metadata: {
@@ -431,9 +434,9 @@ const srLatn = {
       previewDescription:
         "Jasna stranica, pravi desktop paket i jedno mesto za korisne utiske.",
       downloadEyebrow: "Preuzimanje",
-      downloadTitle: "Jedno dugme za operativni sistem posetioca.",
+      downloadTitle: "Pravi paket za računar posetioca.",
       downloadDescription:
-        "Sajt prepoznaje Windows, macOS ili Linux i vodi ka odgovarajućem instalacionom fajlu na downloads.faberpdf.com.",
+        "Sajt prepoznaje Windows, macOS ili Linux i drži odgovarajuće instalacione opcije sa downloads.faberpdf.com odmah uz klik.",
       feedbackEyebrow: "Utisci",
       feedbackTitle: "Nešto je zapinjalo? Pošaljite na posebnoj stranici.",
       feedbackDescription:
@@ -445,7 +448,7 @@ const srLatn = {
       faqEyebrow: "FAQ",
       faqTitle: "Jasne granice za ovo izdanje.",
       faqDescription:
-        "Jasna stranica proizvoda, jedan put do preuzimanja i stvarna petlja za utiske.",
+        "Jasna stranica proizvoda, jasan izbor instalacije i stvarna petlja za utiske.",
     },
     featurePillars: [
       {
@@ -578,7 +581,7 @@ const srLatn = {
       {
         title: "Koristite odgovarajući desktop paket",
         description:
-          "Glavno dugme prati prepoznati operativni sistem. Ako detekcija promaši, izaberite drugu platformu iz selektora.",
+          "Glavni deo prati prepoznati operativni sistem. Ako detekcija promaši, izaberite drugu platformu ili format instalacije iz selektora.",
       },
       {
         title: "Osetljivi PDF-ovi ostaju lokalno",
@@ -605,16 +608,18 @@ const srLatn = {
       windows: "Windows",
     },
     formats: {
-      linux: "AppImage ili arhiva",
-      macos: ".app arhiva",
-      windows: ".exe instalacioni fajl",
+      linux: "AppImage, DEB ili RPM",
+      macos: "Apple Silicon ili Intel DMG",
+      windows: ".exe ili .msi instalacioni fajl",
     },
     details: {
-      linux: "Direktan AppImage paket za Linux desktop računare.",
-      macos: "Kompresovana FaberPDF app arhiva za macOS računare.",
+      linux: "Izaberite AppImage, Debian/Ubuntu ili Fedora/RHEL paket.",
+      macos:
+        "Izaberite Apple Silicon za Mac računare sa M čipom, ili Intel za starije x64 Mac računare.",
       mobile:
         "FaberPDF je desktop aplikacija. Otvorite ovu stranicu na Windows, macOS ili Linux računaru da preuzmete odgovarajući paket.",
-      windows: "Za Windows 10 i novije desktop računare.",
+      windows:
+        "Izaberite standardni setup program ili MSI paket za deployment.",
       unknown:
         "Otvorite ovu stranicu na Windows, macOS ili Linux računaru, ili izaberite desktop platformu.",
     },
@@ -622,6 +627,7 @@ const srLatn = {
     selectLabel: "Drugi OS?",
     selectPlaceholder: "Izaberite OS",
     recommendedBadge: "Preporučeno",
+    chooseBadge: "Izaberite instalaciju",
     pendingBadge: "Link se čeka",
     unsupportedBadge: "Nije podržano",
     unsupportedTitle: "Vaš uređaj nije podržan",
@@ -631,12 +637,13 @@ const srLatn = {
     unsupportedAlertDescription:
       "Mobilnim posetiocima se ne prikazuje dugme za preuzimanje jer FaberPDF trenutno izlazi samo za Windows, macOS i Linux.",
     button: "Preuzmi za {platform}",
+    chooseButton: "Izaberite {platform} instalaciju",
     unsupportedButton: "Vaš OS nije podržan",
     pendingButton: "Link za instalaciju se čeka",
     unknownButton: "Izaberite desktop OS",
     noteTitle: "Instalacioni fajlovi su na downloads.faberpdf.com",
     noteDescription:
-      "Glavno dugme otvara odgovarajući instalacioni fajl iz FaberPDF download storage-a.",
+      "Opcije za preuzimanje otvaraju odgovarajuće instalacione fajlove iz FaberPDF download storage-a.",
   },
   feedback: {
     metadata: {
@@ -763,9 +770,9 @@ const srCyrl = {
       previewDescription:
         "Јасна страница, прави десктоп пакет и једно место за корисне утиске.",
       downloadEyebrow: "Преузимање",
-      downloadTitle: "Једно дугме за оперативни систем посетиоца.",
+      downloadTitle: "Прави пакет за рачунар посетиоца.",
       downloadDescription:
-        "Сајт препознаје Windows, macOS или Linux и води ка одговарајућем инсталационом фајлу на downloads.faberpdf.com.",
+        "Сајт препознаје Windows, macOS или Linux и држи одговарајуће инсталационе опције са downloads.faberpdf.com одмах уз клик.",
       feedbackEyebrow: "Утисци",
       feedbackTitle: "Нешто је запињало? Пошаљите на посебној страници.",
       feedbackDescription:
@@ -777,7 +784,7 @@ const srCyrl = {
       faqEyebrow: "FAQ",
       faqTitle: "Јасне границе за ово издање.",
       faqDescription:
-        "Јасна страница производа, један пут до преузимања и стварна петља за утиске.",
+        "Јасна страница производа, јасан избор инсталације и стварна петља за утиске.",
     },
     featurePillars: [
       {
@@ -911,7 +918,7 @@ const srCyrl = {
       {
         title: "Користите одговарајући десктоп пакет",
         description:
-          "Главно дугме прати препознати оперативни систем. Ако детекција промаши, изаберите другу платформу из селектора.",
+          "Главни део прати препознати оперативни систем. Ако детекција промаши, изаберите другу платформу или формат инсталације из селектора.",
       },
       {
         title: "Осетљиви PDF-ови остају локално",
@@ -939,16 +946,18 @@ const srCyrl = {
       windows: "Windows",
     },
     formats: {
-      linux: "AppImage или архива",
-      macos: ".app архива",
-      windows: ".exe инсталациони фајл",
+      linux: "AppImage, DEB или RPM",
+      macos: "Apple Silicon или Intel DMG",
+      windows: ".exe или .msi инсталациони фајл",
     },
     details: {
-      linux: "Директан AppImage пакет за Linux десктоп рачунаре.",
-      macos: "Компресована FaberPDF app архива за macOS рачунаре.",
+      linux: "Изаберите AppImage, Debian/Ubuntu или Fedora/RHEL пакет.",
+      macos:
+        "Изаберите Apple Silicon за Mac рачунаре са M чипом, или Intel за старије x64 Mac рачунаре.",
       mobile:
         "FaberPDF је десктоп апликација. Отворите ову страницу на Windows, macOS или Linux рачунару да преузмете одговарајући пакет.",
-      windows: "За Windows 10 и новије десктоп рачунаре.",
+      windows:
+        "Изаберите стандардни setup програм или MSI пакет за deployment.",
       unknown:
         "Отворите ову страницу на Windows, macOS или Linux рачунару, или изаберите десктоп платформу.",
     },
@@ -956,6 +965,7 @@ const srCyrl = {
     selectLabel: "Други систем?",
     selectPlaceholder: "Изаберите систем",
     recommendedBadge: "Препоручено",
+    chooseBadge: "Изаберите инсталацију",
     pendingBadge: "Линк се чека",
     unsupportedBadge: "Није подржано",
     unsupportedTitle: "Ваш уређај није подржан",
@@ -965,12 +975,13 @@ const srCyrl = {
     unsupportedAlertDescription:
       "Мобилним посетиоцима се не приказује дугме за преузимање јер FaberPDF тренутно излази само за Windows, macOS и Linux.",
     button: "Преузми за {platform}",
+    chooseButton: "Изаберите {platform} инсталацију",
     unsupportedButton: "Ваш ОС није подржан",
     pendingButton: "Линк за инсталацију се чека",
     unknownButton: "Изаберите десктоп систем",
     noteTitle: "Инсталациони фајлови су на downloads.faberpdf.com",
     noteDescription:
-      "Главно дугме отвара одговарајући инсталациони фајл из FaberPDF download storage-а.",
+      "Опције за преузимање отварају одговарајуће инсталационе фајлове из FaberPDF download storage-а.",
   },
   feedback: {
     ...srLatn.feedback,
@@ -1190,7 +1201,7 @@ const bs = {
       {
         title: "Koristite odgovarajući desktop paket",
         description:
-          "Glavno dugme prati prepoznati operativni sistem. Ako detekcija promaši, izaberite drugu platformu iz selektora.",
+          "Glavni dio prati prepoznati operativni sistem. Ako detekcija promaši, izaberite drugu platformu ili format instalacije iz selektora.",
       },
       {
         title: "Osjetljivi PDF-ovi ostaju lokalno",
@@ -1216,11 +1227,13 @@ const bs = {
       windows: "Windows",
     },
     details: {
-      linux: "Direktan AppImage paket za Linux desktop računare.",
-      macos: "Kompresovana FaberPDF app arhiva za macOS računare.",
+      linux: "Izaberite AppImage, Debian/Ubuntu ili Fedora/RHEL paket.",
+      macos:
+        "Izaberite Apple Silicon za Mac računare sa M čipom, ili Intel za starije x64 Mac računare.",
       mobile:
         "FaberPDF je desktop aplikacija. Otvorite ovu stranicu na Windows, macOS ili Linux računaru da preuzmete odgovarajući paket.",
-      windows: "Za Windows 10 i novije desktop računare.",
+      windows:
+        "Izaberite standardni setup program ili MSI paket za deployment.",
       unknown:
         "Otvorite ovu stranicu na Windows, macOS ili Linux računaru, ili izaberite desktop platformu.",
     },

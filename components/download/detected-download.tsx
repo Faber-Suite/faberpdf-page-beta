@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/select"
 import {
   detectDownloadPlatform,
+  getDownloadOptions,
   getDownloadButtonModel,
   getDownloadState,
   getRecommendedDownload,
@@ -92,11 +93,16 @@ export function DetectedDownload({
     () => getDownloadState(downloads, selectedPlatform),
     [downloads, selectedPlatform]
   )
+  const downloadOptions = React.useMemo(
+    () => getDownloadOptions(downloads, selectedPlatform),
+    [downloads, selectedPlatform]
+  )
   const selectedLabel = messages.platformNames[selectedPlatform]
   const buttonModel = React.useMemo(
     () =>
       getDownloadButtonModel(downloads, selectedPlatform, selectedLabel, {
         button: messages.button,
+        chooseButton: messages.chooseButton,
         unsupportedButton: messages.unsupportedButton,
       }),
     [
@@ -110,6 +116,8 @@ export function DetectedDownload({
   const isDesktopPlatform =
     selectedPlatform !== "unknown" && selectedPlatform !== "mobile"
   const isUnsupportedPlatform = downloadState.status === "unsupported"
+  const needsInstallerChoice = downloadState.status === "choices"
+  const hasDownloadOptions = downloadOptions.length > 0
   const platformItems = React.useMemo(
     () => [
       {
@@ -138,6 +146,11 @@ export function DetectedDownload({
               <Badge>
                 <ArrowDownToLineIcon data-icon="inline-start" />
                 {messages.recommendedBadge}
+              </Badge>
+            ) : needsInstallerChoice ? (
+              <Badge variant="outline">
+                <ArrowDownToLineIcon data-icon="inline-start" />
+                {messages.chooseBadge}
               </Badge>
             ) : isUnsupportedPlatform ? (
               <Badge variant="outline">
@@ -200,8 +213,24 @@ export function DetectedDownload({
             </FieldGroup>
           ) : null}
         </CardContent>
-        <CardFooter>
-          {buttonModel.href ? (
+        <CardFooter className="flex flex-col items-stretch gap-3 sm:items-start">
+          {hasDownloadOptions ? (
+            <div className="grid w-full gap-2 sm:w-fit sm:min-w-64">
+              {downloadOptions.map((option, index) => (
+                <Button
+                  key={`${selectedPlatform}-${option.href}`}
+                  render={<a href={option.href} download />}
+                  nativeButton={false}
+                  variant={index === 0 ? "default" : "outline"}
+                  className="w-full justify-start"
+                  size="lg"
+                >
+                  <ArrowDownToLineIcon data-icon="inline-start" />
+                  {option.label}
+                </Button>
+              ))}
+            </div>
+          ) : buttonModel.href ? (
             <Button
               render={<a href={buttonModel.href} download />}
               nativeButton={false}
@@ -227,7 +256,8 @@ export function DetectedDownload({
       <Alert className="content-start">
         {isUnsupportedPlatform ? (
           <MonitorDownIcon />
-        ) : downloadState.status === "available" ? (
+        ) : downloadState.status === "available" ||
+          downloadState.status === "choices" ? (
           <ArrowDownToLineIcon />
         ) : (
           <ClockIcon />
