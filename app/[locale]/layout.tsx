@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
 
 import "../globals.css"
 import { SiteFooter } from "@/components/marketing/site-footer"
@@ -118,6 +119,7 @@ export default async function RootLayout({
             <SiteFooter dictionary={dictionary} locale={locale} />
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
