@@ -24,15 +24,18 @@ needed for your environment.
 FORMSPREE_FORM_ID="your-form-id"
 ```
 
-Download buttons are enabled per platform when their public URLs are present:
+Download buttons default to the public Cloudflare R2 URLs on
+`downloads.faberpdf.com`:
 
 ```bash
-NEXT_PUBLIC_FABERPDF_WINDOWS_URL="https://example.com/FaberPDF-Setup.exe"
-NEXT_PUBLIC_FABERPDF_MACOS_URL="https://example.com/FaberPDF.dmg"
-NEXT_PUBLIC_FABERPDF_LINUX_URL="https://example.com/FaberPDF.AppImage"
+https://downloads.faberpdf.com/windows/FaberPDF_0.1.0_x64-setup.exe
+https://downloads.faberpdf.com/macos/FaberPDF.app.tar.gz
+https://downloads.faberpdf.com/linux/FaberPDF_0.1.0_amd64.AppImage
 ```
 
-Missing download URLs render as honest pending states instead of dead links.
+`NEXT_PUBLIC_FABERPDF_WINDOWS_URL`, `NEXT_PUBLIC_FABERPDF_MACOS_URL`, and
+`NEXT_PUBLIC_FABERPDF_LINUX_URL` can still override those defaults for a future
+release or staging deployment.
 
 ## Checks
 

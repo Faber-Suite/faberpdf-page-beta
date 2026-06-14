@@ -33,7 +33,6 @@ import {
   type DownloadPlatform,
 } from "@/lib/download"
 import type { Dictionary } from "@/lib/i18n"
-import { downloadEnvironmentKeys } from "@/lib/site"
 
 type DetectedDownloadProps = {
   downloads: DownloadItem[]
@@ -111,9 +110,6 @@ export function DetectedDownload({
   const isDesktopPlatform =
     selectedPlatform !== "unknown" && selectedPlatform !== "mobile"
   const isUnsupportedPlatform = downloadState.status === "unsupported"
-  const selectedEnvKey = isDesktopPlatform
-    ? downloadEnvironmentKeys[selectedPlatform]
-    : null
   const platformItems = React.useMemo(
     () => [
       {
@@ -216,11 +212,7 @@ export function DetectedDownload({
               {buttonModel.label}
             </Button>
           ) : (
-            <Button
-              className="w-full sm:w-fit sm:min-w-56"
-              disabled
-              size="lg"
-            >
+            <Button className="w-full sm:w-fit sm:min-w-56" disabled size="lg">
               {buttonModel.status === "pending" ? (
                 <ClockIcon data-icon="inline-start" />
               ) : (
@@ -233,7 +225,13 @@ export function DetectedDownload({
       </Card>
 
       <Alert className="content-start">
-        {isUnsupportedPlatform ? <MonitorDownIcon /> : <ClockIcon />}
+        {isUnsupportedPlatform ? (
+          <MonitorDownIcon />
+        ) : downloadState.status === "available" ? (
+          <ArrowDownToLineIcon />
+        ) : (
+          <ClockIcon />
+        )}
         <AlertTitle>
           {isUnsupportedPlatform
             ? messages.unsupportedAlertTitle
@@ -242,7 +240,7 @@ export function DetectedDownload({
         <AlertDescription>
           {isUnsupportedPlatform
             ? messages.unsupportedAlertDescription
-            : `${messages.noteDescription}${selectedEnvKey ? ` ${selectedEnvKey}` : ""}`}
+            : messages.noteDescription}
         </AlertDescription>
       </Alert>
     </div>

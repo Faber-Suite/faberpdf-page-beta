@@ -101,7 +101,7 @@ const en = {
       downloadEyebrow: "Download",
       downloadTitle: "One button for the visitor's operating system.",
       downloadDescription:
-        "The site detects Windows, macOS, or Linux and points people to the matching installer when the build URL is configured.",
+        "The site detects Windows, macOS, or Linux and points people to the matching installer hosted on downloads.faberpdf.com.",
       feedbackEyebrow: "Feedback",
       feedbackTitle: "Found something rough? Send it from a dedicated page.",
       feedbackDescription:
@@ -201,7 +201,7 @@ const en = {
       {
         question: "Is this preview free?",
         answer:
-          "Yes. Download the configured desktop build directly when platform links are live.",
+          "Yes. Download the current desktop build directly from downloads.faberpdf.com.",
       },
       {
         question: "Is FaberPDF a web PDF editor?",
@@ -220,7 +220,7 @@ const en = {
       {
         question: "How are download links configured?",
         answer:
-          "Download URLs come from environment variables for Windows, macOS, and Linux. Missing URLs show a pending state.",
+          "The public download links point to downloads.faberpdf.com. Future releases can update those links without changing the operating-system detection flow.",
       },
     ],
     feedbackCta: "Open feedback page",
@@ -275,12 +275,12 @@ const en = {
     },
     formats: {
       linux: "AppImage or archive",
-      macos: ".dmg package",
+      macos: ".app archive",
       windows: ".exe installer",
     },
     details: {
-      linux: "For Linux desktops after the first signed package is published.",
-      macos: "For Apple silicon and Intel Macs when the package is ready.",
+      linux: "Direct AppImage build for Linux desktops.",
+      macos: "Compressed FaberPDF app archive for macOS desktops.",
       mobile:
         "FaberPDF is a desktop app. Open this page on Windows, macOS, or Linux to download the matching build.",
       windows: "For Windows 10 and newer desktop machines.",
@@ -303,9 +303,9 @@ const en = {
     unsupportedButton: "Your OS is not supported",
     pendingButton: "Installer link pending",
     unknownButton: "Choose a desktop OS",
-    noteTitle: "Installer URLs are environment-configured",
+    noteTitle: "Installers are hosted on downloads.faberpdf.com",
     noteDescription:
-      "Add the matching public URL environment variable to enable a live download button for each platform.",
+      "The primary button opens the matching installer from FaberPDF download storage.",
   },
   feedback: {
     metadata: {
@@ -433,7 +433,7 @@ const srLatn = {
       downloadEyebrow: "Preuzimanje",
       downloadTitle: "Jedno dugme za operativni sistem posetioca.",
       downloadDescription:
-        "Sajt prepoznaje Windows, macOS ili Linux i vodi ka odgovarajućem instalacionom fajlu kada je URL podešen.",
+        "Sajt prepoznaje Windows, macOS ili Linux i vodi ka odgovarajućem instalacionom fajlu na downloads.faberpdf.com.",
       feedbackEyebrow: "Utisci",
       feedbackTitle: "Nešto je zapinjalo? Pošaljite na posebnoj stranici.",
       feedbackDescription:
@@ -532,7 +532,7 @@ const srLatn = {
       {
         question: "Da li je ovo izdanje besplatno?",
         answer:
-          "Da. Preuzmite podešeni desktop paket direktno kada linkovi za platforme budu aktivni.",
+          "Da. Preuzmite trenutni desktop paket direktno sa downloads.faberpdf.com.",
       },
       {
         question: "Da li je FaberPDF web PDF editor?",
@@ -551,7 +551,7 @@ const srLatn = {
       {
         question: "Kako se podešavaju linkovi za preuzimanje?",
         answer:
-          "URL-ovi za preuzimanje dolaze iz varijabli okruženja za Windows, macOS i Linux. Ako URL nedostaje, prikazuje se stanje čekanja.",
+          "Javni linkovi za preuzimanje vode na downloads.faberpdf.com. Buduća izdanja mogu da promene te linkove bez promene prepoznavanja operativnog sistema.",
       },
     ],
     feedbackCta: "Otvori stranicu za utiske",
@@ -606,12 +606,12 @@ const srLatn = {
     },
     formats: {
       linux: "AppImage ili arhiva",
-      macos: ".dmg paket",
+      macos: ".app arhiva",
       windows: ".exe instalacioni fajl",
     },
     details: {
-      linux: "Za Linux desktop kada prvi potpisani paket bude objavljen.",
-      macos: "Za Apple silicon i Intel Mac računare kada paket bude spreman.",
+      linux: "Direktan AppImage paket za Linux desktop računare.",
+      macos: "Kompresovana FaberPDF app arhiva za macOS računare.",
       mobile:
         "FaberPDF je desktop aplikacija. Otvorite ovu stranicu na Windows, macOS ili Linux računaru da preuzmete odgovarajući paket.",
       windows: "Za Windows 10 i novije desktop računare.",
@@ -634,9 +634,9 @@ const srLatn = {
     unsupportedButton: "Vaš OS nije podržan",
     pendingButton: "Link za instalaciju se čeka",
     unknownButton: "Izaberite desktop OS",
-    noteTitle: "URL-ovi instalacionih fajlova podešavaju se kroz okruženje",
+    noteTitle: "Instalacioni fajlovi su na downloads.faberpdf.com",
     noteDescription:
-      "Dodajte odgovarajuću javnu URL varijablu okruženja da uključite dugme za preuzimanje za svaku platformu.",
+      "Glavno dugme otvara odgovarajući instalacioni fajl iz FaberPDF download storage-a.",
   },
   feedback: {
     metadata: {
@@ -765,7 +765,7 @@ const srCyrl = {
       downloadEyebrow: "Преузимање",
       downloadTitle: "Једно дугме за оперативни систем посетиоца.",
       downloadDescription:
-        "Сајт препознаје Windows, macOS или Linux и води ка одговарајућем инсталационом фајлу када је URL подешен.",
+        "Сајт препознаје Windows, macOS или Linux и води ка одговарајућем инсталационом фајлу на downloads.faberpdf.com.",
       feedbackEyebrow: "Утисци",
       feedbackTitle: "Нешто је запињало? Пошаљите на посебној страници.",
       feedbackDescription:
@@ -865,7 +865,7 @@ const srCyrl = {
       {
         question: "Да ли је ово издање бесплатно?",
         answer:
-          "Да. Преузмите подешени десктоп пакет директно када линкови за платформе буду активни.",
+          "Да. Преузмите тренутни десктоп пакет директно са downloads.faberpdf.com.",
       },
       {
         question: "Да ли је FaberPDF веб PDF едитор?",
@@ -884,7 +884,7 @@ const srCyrl = {
       {
         question: "Како се подешавају линкови за преузимање?",
         answer:
-          "URL-ови за преузимање долазе из варијабли окружења за Windows, macOS и Linux. Ако URL недостаје, приказује се стање чекања.",
+          "Јавни линкови за преузимање воде на downloads.faberpdf.com. Будућа издања могу да промене те линкове без промене препознавања оперативног система.",
       },
     ],
     feedbackCta: "Отвори страницу за утиске",
@@ -940,12 +940,12 @@ const srCyrl = {
     },
     formats: {
       linux: "AppImage или архива",
-      macos: ".dmg пакет",
+      macos: ".app архива",
       windows: ".exe инсталациони фајл",
     },
     details: {
-      linux: "За Linux десктоп када први потписани пакет буде објављен.",
-      macos: "За Apple silicon и Intel Mac рачунаре када пакет буде спреман.",
+      linux: "Директан AppImage пакет за Linux десктоп рачунаре.",
+      macos: "Компресована FaberPDF app архива за macOS рачунаре.",
       mobile:
         "FaberPDF је десктоп апликација. Отворите ову страницу на Windows, macOS или Linux рачунару да преузмете одговарајући пакет.",
       windows: "За Windows 10 и новије десктоп рачунаре.",
@@ -968,9 +968,9 @@ const srCyrl = {
     unsupportedButton: "Ваш ОС није подржан",
     pendingButton: "Линк за инсталацију се чека",
     unknownButton: "Изаберите десктоп систем",
-    noteTitle: "URL-ови инсталационих фајлова подешавају се кроз окружење",
+    noteTitle: "Инсталациони фајлови су на downloads.faberpdf.com",
     noteDescription:
-      "Додајте одговарајућу јавну URL варијаблу окружења да укључите дугме за преузимање за сваку платформу.",
+      "Главно дугме отвара одговарајући инсталациони фајл из FaberPDF download storage-а.",
   },
   feedback: {
     ...srLatn.feedback,
@@ -1147,7 +1147,7 @@ const bs = {
       {
         question: "Da li je ovo izdanje besplatno?",
         answer:
-          "Da. Preuzmite podešeni desktop paket direktno kada linkovi za platforme budu aktivni.",
+          "Da. Preuzmite trenutni desktop paket direktno sa downloads.faberpdf.com.",
       },
       {
         question: "Da li je FaberPDF web PDF editor?",
@@ -1166,7 +1166,7 @@ const bs = {
       {
         question: "Kako se podešavaju linkovi za preuzimanje?",
         answer:
-          "URL-ovi za preuzimanje dolaze iz varijabli okruženja za Windows, macOS i Linux. Ako URL nedostaje, prikazuje se stanje čekanja.",
+          "Javni linkovi za preuzimanje vode na downloads.faberpdf.com. Buduća izdanja mogu promijeniti te linkove bez promjene prepoznavanja operativnog sistema.",
       },
     ],
   },
@@ -1216,8 +1216,8 @@ const bs = {
       windows: "Windows",
     },
     details: {
-      linux: "Za Linux desktop kada prvi potpisani paket bude objavljen.",
-      macos: "Za Apple silicon i Intel Mac računare kada paket bude spreman.",
+      linux: "Direktan AppImage paket za Linux desktop računare.",
+      macos: "Kompresovana FaberPDF app arhiva za macOS računare.",
       mobile:
         "FaberPDF je desktop aplikacija. Otvorite ovu stranicu na Windows, macOS ili Linux računaru da preuzmete odgovarajući paket.",
       windows: "Za Windows 10 i novije desktop računare.",

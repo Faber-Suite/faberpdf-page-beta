@@ -10,7 +10,7 @@ import {
 
 const downloads: DownloadItem[] = [
   { href: "https://example.com/faberpdf.exe", platform: "windows" },
-  { href: "https://example.com/faberpdf.dmg", platform: "macos" },
+  { href: "https://example.com/faberpdf.tar.gz", platform: "macos" },
   { href: "https://example.com/faberpdf.AppImage", platform: "linux" },
 ]
 
@@ -109,12 +109,7 @@ describe("getDownloadButtonModel", () => {
 
   it("labels unsupported visitor operating systems with a disabled unsupported button", () => {
     expect(
-      getDownloadButtonModel(
-        downloads,
-        "mobile",
-        "mobile device",
-        copy
-      )
+      getDownloadButtonModel(downloads, "mobile", "mobile device", copy)
     ).toMatchObject({
       disabled: true,
       href: null,

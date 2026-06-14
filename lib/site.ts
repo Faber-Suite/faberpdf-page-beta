@@ -1,5 +1,16 @@
 import type { DownloadItem } from "@/lib/download"
 
+const defaultDownloadUrls = {
+  linux: "https://downloads.faberpdf.com/linux/FaberPDF_0.1.0_amd64.AppImage",
+  macos: "https://downloads.faberpdf.com/macos/FaberPDF.app.tar.gz",
+  windows:
+    "https://downloads.faberpdf.com/windows/FaberPDF_0.1.0_x64-setup.exe",
+} satisfies Record<DownloadItem["platform"], string>
+
+function downloadUrl(value: string | undefined, fallback: string) {
+  return value?.trim() || fallback
+}
+
 export const siteConfig = {
   name: "FaberPDF",
   betaVersion: "0.1.0",
@@ -21,21 +32,24 @@ export const siteConfig = {
 
 export const downloadItems = [
   {
-    href: process.env.NEXT_PUBLIC_FABERPDF_WINDOWS_URL ?? "",
+    href: downloadUrl(
+      process.env.NEXT_PUBLIC_FABERPDF_WINDOWS_URL,
+      defaultDownloadUrls.windows
+    ),
     platform: "windows",
   },
   {
-    href: process.env.NEXT_PUBLIC_FABERPDF_MACOS_URL ?? "",
+    href: downloadUrl(
+      process.env.NEXT_PUBLIC_FABERPDF_MACOS_URL,
+      defaultDownloadUrls.macos
+    ),
     platform: "macos",
   },
   {
-    href: process.env.NEXT_PUBLIC_FABERPDF_LINUX_URL ?? "",
+    href: downloadUrl(
+      process.env.NEXT_PUBLIC_FABERPDF_LINUX_URL,
+      defaultDownloadUrls.linux
+    ),
     platform: "linux",
   },
 ] satisfies DownloadItem[]
-
-export const downloadEnvironmentKeys = {
-  linux: "NEXT_PUBLIC_FABERPDF_LINUX_URL",
-  macos: "NEXT_PUBLIC_FABERPDF_MACOS_URL",
-  windows: "NEXT_PUBLIC_FABERPDF_WINDOWS_URL",
-} satisfies Record<DownloadItem["platform"], string>

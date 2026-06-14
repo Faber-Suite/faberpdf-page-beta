@@ -55,7 +55,22 @@ describe("public website copy", () => {
 
     expect(
       dictionaries.map((dictionary) => dictionary.header.toggleTheme)
-    ).toEqual(["Toggle theme", "Promeni temu", "Промени тему", "Promijeni temu"])
+    ).toEqual([
+      "Toggle theme",
+      "Promeni temu",
+      "Промени тему",
+      "Promijeni temu",
+    ])
     expect(siteHeaderSource).toContain("<ThemeToggle")
+  })
+
+  test("download help copy describes live hosted installers", () => {
+    const strings = locales
+      .map((locale) => getDictionary(locale).download)
+      .flatMap(collectStrings)
+      .join("\n")
+
+    expect(strings).toContain("downloads.faberpdf.com")
+    expect(strings).not.toMatch(/environment variable|NEXT_PUBLIC/i)
   })
 })
