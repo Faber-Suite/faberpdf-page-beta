@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
 
 import "../globals.css"
+import { ConsentGatedAnalytics } from "@/components/consent/consent-gated-analytics"
+import { CookieConsentProvider } from "@/components/consent/cookie-consent-provider"
 import { SiteFooter } from "@/components/marketing/site-footer"
 import { SiteHeader } from "@/components/marketing/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -113,13 +114,15 @@ export default async function RootLayout({
     >
       <body>
         <ThemeProvider defaultTheme="light" enableSystem={false}>
-          <div className="flex min-h-svh flex-col">
-            <SiteHeader dictionary={dictionary} locale={locale} />
-            <div className="flex-1">{children}</div>
-            <SiteFooter dictionary={dictionary} locale={locale} />
-          </div>
+          <CookieConsentProvider copy={dictionary.cookieConsent}>
+            <div className="flex min-h-svh flex-col">
+              <SiteHeader dictionary={dictionary} locale={locale} />
+              <div className="flex-1">{children}</div>
+              <SiteFooter dictionary={dictionary} locale={locale} />
+            </div>
+            <ConsentGatedAnalytics />
+          </CookieConsentProvider>
         </ThemeProvider>
-        <Analytics />
       </body>
     </html>
   )

@@ -68,6 +68,57 @@ const en = {
   languageSwitcher: {
     label: "Language",
   },
+  cookieConsent: {
+    bannerTitle: "Cookie choices",
+    bannerDescription:
+      "We use necessary cookies to keep this site working. Analytics and future tracking stay off unless you choose to allow them.",
+    dialogTitle: "Cookie preferences",
+    dialogDescription:
+      "Choose which optional categories FaberPDF can use. You can change this later from the footer.",
+    customize: "Customize",
+    rejectOptional: "Reject non-essential",
+    acceptAll: "Accept all",
+    saveChoices: "Save choices",
+    alwaysOn: "Always on",
+    settingsButton: "Cookie settings",
+    categories: {
+      necessary: {
+        title: "Necessary",
+        description:
+          "Required for core site behavior, language routing, consent storage, and security-sensitive basics.",
+      },
+      functional: {
+        title: "Functional",
+        description:
+          "Remember optional preferences that improve the site but are not required for it to work.",
+      },
+      analytics: {
+        title: "Analytics",
+        description:
+          "Help understand visits and page performance. Vercel Analytics is loaded only when this is enabled.",
+      },
+      performance: {
+        title: "Performance",
+        description:
+          "Support future diagnostics such as web vitals, reliability metrics, and load-time measurements.",
+      },
+      personalization: {
+        title: "Personalization",
+        description:
+          "Allow future content or product hints to adapt to previous choices on this site.",
+      },
+      marketing: {
+        title: "Marketing",
+        description:
+          "Allow future campaign measurement, attribution, ads pixels, or retargeting tools.",
+      },
+      security: {
+        title: "Security",
+        description:
+          "Reserve an optional category for future anti-abuse, fraud-prevention, or bot-detection tools.",
+      },
+    },
+  },
   productWorkspace: {
     editorAlt: "FaberPDF editor with an open PDF",
     welcomeAlt: "FaberPDF welcome screen",
@@ -401,6 +452,57 @@ const srLatn = {
   },
   languageSwitcher: {
     label: "Jezik",
+  },
+  cookieConsent: {
+    bannerTitle: "Podešavanja kolačića",
+    bannerDescription:
+      "Koristimo neophodne kolačiće da sajt radi. Analitika i budući tracking ostaju isključeni dok ih ne dozvolite.",
+    dialogTitle: "Podešavanja kolačića",
+    dialogDescription:
+      "Izaberite koje opcione kategorije FaberPDF može da koristi. Izbor možete promeniti kasnije u footer-u.",
+    customize: "Podesi",
+    rejectOptional: "Odbij opcione",
+    acceptAll: "Prihvati sve",
+    saveChoices: "Sačuvaj izbor",
+    alwaysOn: "Uvek uključeno",
+    settingsButton: "Podešavanja kolačića",
+    categories: {
+      necessary: {
+        title: "Neophodni",
+        description:
+          "Potrebni za osnovni rad sajta, jezičko rutiranje, čuvanje consent izbora i bezbednosne osnove.",
+      },
+      functional: {
+        title: "Funkcionalni",
+        description:
+          "Pamte opcione preference koje poboljšavaju sajt, ali nisu neophodne da bi radio.",
+      },
+      analytics: {
+        title: "Analitika",
+        description:
+          "Pomažu da razumemo posete i performanse stranica. Vercel Analytics se učitava samo kada je ovo uključeno.",
+      },
+      performance: {
+        title: "Performanse",
+        description:
+          "Podržavaju buduću dijagnostiku kao što su web vitals, pouzdanost i vreme učitavanja.",
+      },
+      personalization: {
+        title: "Personalizacija",
+        description:
+          "Dozvoljavaju da se budući sadržaj ili product hintovi prilagode prethodnim izborima na sajtu.",
+      },
+      marketing: {
+        title: "Marketing",
+        description:
+          "Dozvoljavaju buduće merenje kampanja, atribuciju, ads pixele ili retargeting alate.",
+      },
+      security: {
+        title: "Bezbednost",
+        description:
+          "Rezervisana opciona kategorija za buduće anti-abuse, fraud-prevention ili bot-detection alate.",
+      },
+    },
   },
   productWorkspace: {
     editorAlt: "FaberPDF editor sa otvorenim PDF-om",
@@ -738,6 +840,57 @@ const srCyrl = {
   languageSwitcher: {
     label: "Језик",
   },
+  cookieConsent: {
+    bannerTitle: "Подешавања колачића",
+    bannerDescription:
+      "Користимо неопходне колачиће да сајт ради. Аналитика и будући tracking остају искључени док их не дозволите.",
+    dialogTitle: "Подешавања колачића",
+    dialogDescription:
+      "Изаберите које опционе категорије FaberPDF може да користи. Избор можете променити касније у footer-у.",
+    customize: "Подеси",
+    rejectOptional: "Одбиј опционе",
+    acceptAll: "Прихвати све",
+    saveChoices: "Сачувај избор",
+    alwaysOn: "Увек укључено",
+    settingsButton: "Подешавања колачића",
+    categories: {
+      necessary: {
+        title: "Неопходни",
+        description:
+          "Потребни за основни рад сајта, језичко рутирање, чување consent избора и безбедносне основе.",
+      },
+      functional: {
+        title: "Функционални",
+        description:
+          "Памте опционе preference које побољшавају сајт, али нису неопходне да би радио.",
+      },
+      analytics: {
+        title: "Аналитика",
+        description:
+          "Помажу да разумемо посете и перформансе страница. Vercel Analytics се учитава само када је ово укључено.",
+      },
+      performance: {
+        title: "Перформансе",
+        description:
+          "Подржавају будућу дијагностику као што су web vitals, поузданост и време учитавања.",
+      },
+      personalization: {
+        title: "Персонализација",
+        description:
+          "Дозвољавају да се будући садржај или product hintови прилагоде претходним изборима на сајту.",
+      },
+      marketing: {
+        title: "Маркетинг",
+        description:
+          "Дозвољавају будуће мерење кампања, атрибуцију, ads pixele или retargeting алате.",
+      },
+      security: {
+        title: "Безбедност",
+        description:
+          "Резервисана опциона категорија за будуће anti-abuse, fraud-prevention или bot-detection алате.",
+      },
+    },
+  },
   productWorkspace: {
     editorAlt: "FaberPDF едитор са отвореним PDF-ом",
     welcomeAlt: "FaberPDF почетни екран",
@@ -1064,6 +1217,57 @@ const bs = {
     { label: "Utisci", href: "/feedback" },
     { label: "FAQ", href: "/#faq" },
   ],
+  cookieConsent: {
+    bannerTitle: "Podešavanja kolačića",
+    bannerDescription:
+      "Koristimo neophodne kolačiće da sajt radi. Analitika i budući tracking ostaju isključeni dok ih ne dozvolite.",
+    dialogTitle: "Podešavanja kolačića",
+    dialogDescription:
+      "Izaberite koje opcione kategorije FaberPDF može koristiti. Izbor možete promijeniti kasnije u footer-u.",
+    customize: "Podesi",
+    rejectOptional: "Odbij opcione",
+    acceptAll: "Prihvati sve",
+    saveChoices: "Sačuvaj izbor",
+    alwaysOn: "Uvijek uključeno",
+    settingsButton: "Podešavanja kolačića",
+    categories: {
+      necessary: {
+        title: "Neophodni",
+        description:
+          "Potrebni za osnovni rad sajta, jezičko rutiranje, čuvanje consent izbora i sigurnosne osnove.",
+      },
+      functional: {
+        title: "Funkcionalni",
+        description:
+          "Pamte opcione preference koje poboljšavaju sajt, ali nisu neophodne da bi radio.",
+      },
+      analytics: {
+        title: "Analitika",
+        description:
+          "Pomažu da razumijemo posjete i performanse stranica. Vercel Analytics se učitava samo kada je ovo uključeno.",
+      },
+      performance: {
+        title: "Performanse",
+        description:
+          "Podržavaju buduću dijagnostiku kao što su web vitals, pouzdanost i vrijeme učitavanja.",
+      },
+      personalization: {
+        title: "Personalizacija",
+        description:
+          "Dozvoljavaju da se budući sadržaj ili product hintovi prilagode prethodnim izborima na sajtu.",
+      },
+      marketing: {
+        title: "Marketing",
+        description:
+          "Dozvoljavaju buduće mjerenje kampanja, atribuciju, ads pixele ili retargeting alate.",
+      },
+      security: {
+        title: "Sigurnost",
+        description:
+          "Rezervisana opciona kategorija za buduće anti-abuse, fraud-prevention ili bot-detection alate.",
+      },
+    },
+  },
   home: {
     ...srLatn.home,
     hero: {

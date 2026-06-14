@@ -1,5 +1,6 @@
 import Link from "next/link"
 
+import { CookieSettingsButton } from "@/components/consent/cookie-consent-provider"
 import { FaberLogo } from "@/components/marketing/faber-logo"
 import { Separator } from "@/components/ui/separator"
 import type { Dictionary } from "@/lib/i18n"
@@ -54,6 +55,9 @@ export function SiteFooter({ dictionary, locale }: SiteFooterProps) {
             >
               {siteConfig.contactEmail}
             </a>
+            <CookieSettingsButton>
+              {dictionary.cookieConsent.settingsButton}
+            </CookieSettingsButton>
           </div>
         </div>
 
