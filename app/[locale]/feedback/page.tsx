@@ -16,6 +16,7 @@ import {
   getLocaleDictionary,
   type LocalePageProps,
 } from "@/lib/i18n-server"
+import { buildFeedbackJsonLd, serializeJsonLd } from "@/lib/seo"
 
 export async function generateMetadata({
   params,
@@ -30,11 +31,17 @@ export async function generateMetadata({
 }
 
 export default async function FeedbackPage({ params }: LocalePageProps) {
-  const { dictionary } = await getLocaleDictionary(params)
+  const { dictionary, locale } = await getLocaleDictionary(params)
   const feedback = dictionary.feedback
 
   return (
     <main className="bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: serializeJsonLd(buildFeedbackJsonLd(locale)),
+        }}
+      />
       <section className="border-b bg-surface-quiet">
         <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-14 md:gap-12 md:px-6 md:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:py-24">
           <div className="flex flex-col gap-8">

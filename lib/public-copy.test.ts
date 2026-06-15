@@ -99,4 +99,39 @@ describe("public website copy", () => {
     expect(strings).toContain("downloads.faberpdf.com")
     expect(strings).not.toMatch(/environment variable|NEXT_PUBLIC/i)
   })
+
+  test("public pages render localized JSON-LD from SEO builders", () => {
+    const pageSources = [
+      "app/[locale]/page.tsx",
+      "app/[locale]/download/page.tsx",
+      "app/[locale]/feedback/page.tsx",
+    ].map((filePath) => readFileSync(join(process.cwd(), filePath), "utf8"))
+
+    expect(pageSources[0]).toContain("buildHomeJsonLd")
+    expect(pageSources[1]).toContain("buildDownloadJsonLd")
+    expect(pageSources[2]).toContain("buildFeedbackJsonLd")
+    expect(pageSources.join("\n")).toContain("serializeJsonLd")
+  })
+
+  test("localized routes generate rich social preview images", () => {
+    const source = [
+      "app/[locale]/opengraph-image.tsx",
+      "app/[locale]/twitter-image.tsx",
+    ]
+      .map((filePath) => readFileSync(join(process.cwd(), filePath), "utf8"))
+      .join("\n")
+
+    expect(source).toContain("ImageResponse")
+    expect(source).toContain("width: 1200")
+    expect(source).toContain("height: 630")
+    expect(source).toContain("FaberPDF")
+    expect(source).toContain("Modern local-first PDF editor")
+  })
+
+  test("proxy preserves generated social image URLs", () => {
+    const source = readFileSync(join(process.cwd(), "proxy.ts"), "utf8")
+
+    expect(source).toContain("opengraph-image")
+    expect(source).toContain("twitter-image")
+  })
 })

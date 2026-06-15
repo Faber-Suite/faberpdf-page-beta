@@ -8,13 +8,15 @@ import { CookieConsentProvider } from "@/components/consent/cookie-consent-provi
 import { SiteFooter } from "@/components/marketing/site-footer"
 import { SiteHeader } from "@/components/marketing/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
+import { getDictionary, isLocale, locales, localizePath } from "@/lib/i18n"
 import {
-  getDictionary,
-  getLocalizedAlternates,
-  isLocale,
-  locales,
-  localizePath,
-} from "@/lib/i18n"
+  getAlternateOpenGraphLocales,
+  getLocalizedSeoAlternates,
+  getOpenGraphImage,
+  getTwitterImage,
+  localeSearchIntent,
+  metadataRobots,
+} from "@/lib/seo"
 import { siteConfig } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
@@ -67,12 +69,17 @@ export async function generateMetadata({
       email: false,
       telephone: false,
     },
-    keywords: siteConfig.keywords,
+    keywords: [
+      ...siteConfig.keywords,
+      ...localeSearchIntent[locale].primaryKeywords,
+    ],
+    manifest: "/manifest.webmanifest",
     publisher: siteConfig.ownerName,
     referrer: "strict-origin-when-cross-origin",
+    robots: metadataRobots,
     alternates: {
       canonical: url,
-      languages: getLocalizedAlternates("/"),
+      languages: getLocalizedSeoAlternates("/"),
     },
     openGraph: {
       type: "website",
@@ -80,11 +87,15 @@ export async function generateMetadata({
       siteName: siteConfig.name,
       title: dictionary.metadata.defaultTitle,
       description: dictionary.metadata.description,
+      locale,
+      alternateLocale: getAlternateOpenGraphLocales(locale),
+      images: [getOpenGraphImage(locale)],
     },
     twitter: {
       card: "summary_large_image",
       title: dictionary.metadata.defaultTitle,
       description: dictionary.metadata.description,
+      images: [getTwitterImage(locale)],
     },
   }
 }

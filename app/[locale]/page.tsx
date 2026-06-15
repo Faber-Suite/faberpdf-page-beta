@@ -1,10 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import {
-  ArrowRightIcon,
-  CheckIcon,
-  MessageSquareTextIcon,
-} from "lucide-react"
+import { ArrowRightIcon, CheckIcon, MessageSquareTextIcon } from "lucide-react"
 
 import { DetectedDownloadButton } from "@/components/download/detected-download-button"
 import screenshotEditor from "@/faber_assets/opened_pdf.png"
@@ -27,6 +23,7 @@ import {
 import { Separator } from "@/components/ui/separator"
 import { getLocaleDictionary, type LocalePageProps } from "@/lib/i18n-server"
 import { localizePath } from "@/lib/i18n-routing"
+import { buildHomeJsonLd, serializeJsonLd } from "@/lib/seo"
 import { downloadItems } from "@/lib/site"
 
 export default async function Page({ params }: LocalePageProps) {
@@ -35,6 +32,12 @@ export default async function Page({ params }: LocalePageProps) {
 
   return (
     <main id="top" className="bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: serializeJsonLd(buildHomeJsonLd(locale)),
+        }}
+      />
       <section className="relative isolate min-h-[84svh] overflow-hidden border-b bg-surface-quiet md:min-h-[88svh]">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <Image

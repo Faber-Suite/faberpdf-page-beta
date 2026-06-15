@@ -6,8 +6,19 @@ import {
   getPathWithoutLocale,
 } from "@/lib/i18n-routing"
 
+const socialImagePathSuffixes = ["/opengraph-image", "/twitter-image"] as const
+
+function isSocialImagePath(pathname: string) {
+  return socialImagePathSuffixes.some((suffix) => pathname.endsWith(suffix))
+}
+
 export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname
+
+  if (isSocialImagePath(pathname)) {
+    return
+  }
+
   const locale = getLocaleFromPathname(pathname)
 
   if (locale === defaultLocale) {

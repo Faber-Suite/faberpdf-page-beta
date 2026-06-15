@@ -18,6 +18,7 @@ import {
   type LocalePageProps,
 } from "@/lib/i18n-server"
 import { localizePath } from "@/lib/i18n-routing"
+import { buildDownloadJsonLd, serializeJsonLd } from "@/lib/seo"
 import { downloadItems } from "@/lib/site"
 
 export async function generateMetadata({
@@ -38,6 +39,12 @@ export default async function DownloadPage({ params }: LocalePageProps) {
 
   return (
     <main className="bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: serializeJsonLd(buildDownloadJsonLd(locale)),
+        }}
+      />
       <section className="border-b bg-surface-quiet">
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 py-14 md:gap-12 md:px-6 md:py-20 lg:py-24">
           <div className="flex max-w-4xl flex-col gap-6">
