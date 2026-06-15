@@ -5,6 +5,7 @@ import { FaberLogo } from "@/components/marketing/faber-logo"
 import { Separator } from "@/components/ui/separator"
 import type { Dictionary } from "@/lib/i18n"
 import { localizePath, type Locale } from "@/lib/i18n-routing"
+import { getLegalHeading, getLegalNavigation } from "@/lib/legal"
 import { siteConfig } from "@/lib/site"
 
 type SiteFooterProps = {
@@ -13,10 +14,13 @@ type SiteFooterProps = {
 }
 
 export function SiteFooter({ dictionary, locale }: SiteFooterProps) {
+  const legalHeading = getLegalHeading(locale)
+  const legalNavigation = getLegalNavigation(locale)
+
   return (
     <footer className="border-t bg-surface-quiet">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-10 md:px-6">
-        <div className="grid gap-8 md:grid-cols-[1fr_auto_auto]">
+        <div className="grid gap-8 md:grid-cols-[1fr_auto_auto_auto]">
           <div className="flex max-w-md flex-col gap-3">
             <Link
               href={localizePath(locale, "/")}
@@ -35,6 +39,19 @@ export function SiteFooter({ dictionary, locale }: SiteFooterProps) {
               {dictionary.footer.productHeading}
             </p>
             {dictionary.navigation.map((item) => (
+              <Link
+                key={`${item.label}-${item.href}`}
+                href={localizePath(locale, item.href)}
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <nav className="flex flex-col gap-2" aria-label={legalHeading}>
+            <p className="text-sm font-medium">{legalHeading}</p>
+            {legalNavigation.map((item) => (
               <Link
                 key={`${item.label}-${item.href}`}
                 href={localizePath(locale, item.href)}

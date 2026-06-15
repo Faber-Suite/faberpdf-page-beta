@@ -46,6 +46,16 @@ export const publicSeoRoutes = [
     changeFrequency: "monthly",
     priority: 0.7,
   },
+  {
+    pathname: "/terms",
+    changeFrequency: "yearly",
+    priority: 0.3,
+  },
+  {
+    pathname: "/privacy",
+    changeFrequency: "yearly",
+    priority: 0.3,
+  },
 ] as const
 
 export type PublicSeoPathname = (typeof publicSeoRoutes)[number]["pathname"]

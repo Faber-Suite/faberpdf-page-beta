@@ -20,6 +20,8 @@ describe("SEO data contract", () => {
       "/",
       "/download",
       "/feedback",
+      "/terms",
+      "/privacy",
     ])
 
     for (const route of publicSeoRoutes) {
@@ -37,6 +39,7 @@ describe("SEO data contract", () => {
     expect(getRouteUrl("sr-Cyrl", "/feedback")).toBe(
       `${siteConfig.url}/sr-Cyrl/feedback`
     )
+    expect(getRouteUrl("bs", "/privacy")).toBe(`${siteConfig.url}/bs/privacy`)
     expect(getRouteUrl("bs", "/")).toBe(`${siteConfig.url}/bs`)
   })
 

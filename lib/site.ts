@@ -23,7 +23,7 @@ export const siteConfig = {
   name: "FaberPDF",
   betaVersion: "0.1.0",
   ownerName: "Adnan Crnovršanin",
-  contactEmail: "hello@faberpdf.com",
+  contactEmail: "office@actaer.com",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://faberpdf.com",
   description:
     "A modern local-first PDF editor for signing, editing, annotating, and validating documents on your desktop.",
