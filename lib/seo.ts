@@ -1,6 +1,10 @@
 import { getDictionary, htmlLangs, locales, localizePath } from "@/lib/i18n"
 import type { Locale } from "@/lib/i18n-routing"
-import { downloadItems, siteConfig } from "@/lib/site"
+import {
+  downloadItems as fallbackDownloadItems,
+  siteConfig,
+  type SiteRelease,
+} from "@/lib/site"
 
 type JsonLdPrimitive = string | number | boolean | null
 type JsonLdValue =
@@ -9,6 +13,12 @@ type JsonLdValue =
   | { [key: string]: JsonLdValue }
 
 export type JsonLdObject = { [key: string]: JsonLdValue }
+type SeoRelease = Pick<SiteRelease, "downloadItems" | "version">
+
+const fallbackRelease: SeoRelease = {
+  downloadItems: fallbackDownloadItems,
+  version: siteConfig.betaVersion,
+}
 
 export const seoLastModified = new Date("2026-06-15T00:00:00.000Z")
 
@@ -162,6 +172,16 @@ export function serializeJsonLd(value: JsonLdValue) {
   return JSON.stringify(value).replace(/</g, "\\u003c")
 }
 
+function getDownloadUrls(release: SeoRelease) {
+  return release.downloadItems.flatMap((item) =>
+    item.options?.length
+      ? item.options.map((option) => option.href)
+      : item.href
+        ? [item.href]
+        : []
+  )
+}
+
 function organizationJsonLd(): JsonLdObject {
   return {
     "@context": "https://schema.org",
@@ -194,7 +214,10 @@ function websiteJsonLd(locale: Locale): JsonLdObject {
   }
 }
 
-function softwareApplicationJsonLd(locale: Locale): JsonLdObject {
+function softwareApplicationJsonLd(
+  locale: Locale,
+  release: SeoRelease = fallbackRelease
+): JsonLdObject {
   const dictionary = getDictionary(locale)
 
   return {
@@ -207,12 +230,10 @@ function softwareApplicationJsonLd(locale: Locale): JsonLdObject {
     applicationCategory: "BusinessApplication",
     applicationSubCategory: "PDF editor",
     operatingSystem: "Windows, macOS, Linux",
-    softwareVersion: siteConfig.betaVersion,
+    softwareVersion: release.version,
     isAccessibleForFree: true,
     inLanguage: htmlLangs[locale],
-    downloadUrl: downloadItems.flatMap((item) =>
-      item.options.map((option) => option.href)
-    ),
+    downloadUrl: getDownloadUrls(release),
   }
 }
 
@@ -270,20 +291,26 @@ function webPageJsonLd(
   }
 }
 
-export function buildHomeJsonLd(locale: Locale) {
+export function buildHomeJsonLd(
+  locale: Locale,
+  release: SeoRelease = fallbackRelease
+) {
   return [
     organizationJsonLd(),
     websiteJsonLd(locale),
-    softwareApplicationJsonLd(locale),
+    softwareApplicationJsonLd(locale, release),
     faqJsonLd(locale),
   ]
 }
 
-export function buildDownloadJsonLd(locale: Locale) {
+export function buildDownloadJsonLd(
+  locale: Locale,
+  release: SeoRelease = fallbackRelease
+) {
   return [
     organizationJsonLd(),
     webPageJsonLd(locale, "/download"),
-    softwareApplicationJsonLd(locale),
+    softwareApplicationJsonLd(locale, release),
   ]
 }
 

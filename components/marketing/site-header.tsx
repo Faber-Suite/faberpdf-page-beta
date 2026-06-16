@@ -6,16 +6,18 @@ import { FaberLogo } from "@/components/marketing/faber-logo"
 import { LanguageSwitcher } from "@/components/marketing/language-switcher"
 import { ThemeToggle } from "@/components/marketing/theme-toggle"
 import { Button } from "@/components/ui/button"
+import type { DownloadItem } from "@/lib/download"
 import type { Dictionary } from "@/lib/i18n"
 import { localizePath, type Locale } from "@/lib/i18n-routing"
-import { downloadItems, siteConfig } from "@/lib/site"
+import { siteConfig } from "@/lib/site"
 
 type SiteHeaderProps = {
   dictionary: Dictionary
+  downloads: DownloadItem[]
   locale: Locale
 }
 
-export function SiteHeader({ dictionary, locale }: SiteHeaderProps) {
+export function SiteHeader({ dictionary, downloads, locale }: SiteHeaderProps) {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/88 backdrop-blur supports-[backdrop-filter]:bg-background/72">
       <div className="mx-auto flex min-h-16 w-full max-w-7xl items-center justify-between gap-3 px-4 md:px-6">
@@ -61,7 +63,7 @@ export function SiteHeader({ dictionary, locale }: SiteHeaderProps) {
           </Button>
           <DetectedDownloadButton
             downloadPageHref={localizePath(locale, "/download")}
-            downloads={downloadItems}
+            downloads={downloads}
             messages={dictionary.download}
             size="sm"
             className="hidden sm:inline-flex"

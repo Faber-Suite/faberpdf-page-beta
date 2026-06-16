@@ -57,4 +57,34 @@ describe("download page routing", () => {
     expect(headerSource).not.toContain("dictionary.header.download")
     expect(headerSource).not.toContain('size="icon-sm"')
   })
+
+  test("download surfaces use the runtime site release manifest", () => {
+    const layoutSource = readFileSync(
+      join(process.cwd(), "app/[locale]/layout.tsx"),
+      "utf8"
+    )
+    const homepageSource = readFileSync(
+      join(process.cwd(), "app/[locale]/page.tsx"),
+      "utf8"
+    )
+    const downloadPageSource = readFileSync(
+      join(process.cwd(), "app/[locale]/download/page.tsx"),
+      "utf8"
+    )
+    const headerSource = readFileSync(
+      join(process.cwd(), "components/marketing/site-header.tsx"),
+      "utf8"
+    )
+
+    expect(layoutSource).toContain("getSiteRelease")
+    expect(layoutSource).toContain("downloads={release.downloadItems}")
+    expect(homepageSource).toContain("getSiteRelease")
+    expect(homepageSource).toContain("downloads={release.downloadItems}")
+    expect(homepageSource).toContain("buildHomeJsonLd(locale, release)")
+    expect(downloadPageSource).toContain("getSiteRelease")
+    expect(downloadPageSource).toContain("downloads={release.downloadItems}")
+    expect(downloadPageSource).toContain("buildDownloadJsonLd(locale, release)")
+    expect(headerSource).toContain("downloads: DownloadItem[]")
+    expect(headerSource).not.toContain("downloadItems")
+  })
 })

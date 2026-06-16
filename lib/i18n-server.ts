@@ -18,7 +18,10 @@ export type LocalePageProps = {
   params: Promise<{ locale: string }>
 }
 
-export async function getLocaleDictionary(params: Promise<{ locale: string }>) {
+export async function getLocaleDictionary(
+  params: Promise<{ locale: string }>,
+  options?: Parameters<typeof getDictionary>[1]
+) {
   const { locale } = await params
 
   if (!isLocale(locale)) {
@@ -26,7 +29,7 @@ export async function getLocaleDictionary(params: Promise<{ locale: string }>) {
   }
 
   return {
-    dictionary: getDictionary(locale),
+    dictionary: getDictionary(locale, options),
     locale,
   }
 }

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og"
 
 import { isLocale } from "@/lib/i18n"
 import type { Locale } from "@/lib/i18n-routing"
-import { siteConfig } from "@/lib/site"
+import { getSiteRelease } from "@/lib/site"
 
 export const alt = "FaberPDF - Modern local-first PDF editor"
 
@@ -45,6 +45,7 @@ type ImageProps = {
 export default async function Image({ params }: ImageProps) {
   const { locale: localeCandidate } = await params
   const locale = isLocale(localeCandidate) ? localeCandidate : "en"
+  const release = await getSiteRelease()
   const copy = previewCopy[locale]
 
   return new ImageResponse(
@@ -80,7 +81,7 @@ export default async function Image({ params }: ImageProps) {
             padding: "14px 24px",
           }}
         >
-          Beta {siteConfig.betaVersion}
+          Beta {release.version}
         </span>
       </div>
 

@@ -24,8 +24,16 @@ needed for your environment.
 FORMSPREE_FORM_ID="your-form-id"
 ```
 
-Download buttons default to the public Cloudflare R2 URLs on
+Download buttons load the current public release manifest from
 `downloads.faberpdf.com`:
+
+```bash
+FABERPDF_DOWNLOADS_MANIFEST_URL="https://downloads.faberpdf.com/downloads.json"
+```
+
+The manifest is generated and uploaded by the desktop app release workflow. If
+the manifest cannot be loaded or does not validate, the site falls back to the
+bundled Cloudflare R2 URLs:
 
 ```bash
 https://downloads.faberpdf.com/windows/FaberPDF_0.1.0_x64-setup.exe
@@ -38,7 +46,7 @@ https://downloads.faberpdf.com/linux/FaberPDF_0.1.0_amd64.deb
 https://downloads.faberpdf.com/linux/FaberPDF-0.1.0-1.x86_64.rpm
 ```
 
-The primary package environment variables are
+The fallback package environment variables are
 `NEXT_PUBLIC_FABERPDF_WINDOWS_URL`, `NEXT_PUBLIC_FABERPDF_MACOS_URL`, and
 `NEXT_PUBLIC_FABERPDF_LINUX_URL`. Additional optional overrides cover the MSI,
 macOS Apple Silicon DMG, macOS Intel DMG, DEB, and RPM packages. See

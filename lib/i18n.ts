@@ -280,8 +280,7 @@ const en = {
   downloadPage: {
     metadata: {
       title: "Download FaberPDF",
-      description:
-        "Download the FaberPDF beta for Windows, macOS, or Linux.",
+      description: "Download the FaberPDF beta for Windows, macOS, or Linux.",
     },
     eyebrow: "Download",
     title: "Download the FaberPDF beta for your desktop.",
@@ -327,7 +326,7 @@ const en = {
     },
     formats: {
       linux: "AppImage, DEB, or RPM",
-      macos: "Apple Silicon or Intel DMG",
+      macos: "Apple Silicon or Intel package",
       windows: ".exe or .msi installer",
     },
     details: {
@@ -722,7 +721,7 @@ const srLatn = {
     },
     formats: {
       linux: "AppImage, DEB ili RPM",
-      macos: "Apple Silicon ili Intel DMG",
+      macos: "Apple Silicon ili Intel paket",
       windows: ".exe ili .msi instalacioni fajl",
     },
     details: {
@@ -1120,7 +1119,7 @@ const srCyrl = {
     },
     formats: {
       linux: "AppImage, DEB или RPM",
-      macos: "Apple Silicon или Intel DMG",
+      macos: "Apple Silicon или Intel пакет",
       windows: ".exe или .msi инсталациони фајл",
     },
     details: {
@@ -1552,8 +1551,45 @@ const dictionaries = {
 
 export type Dictionary = typeof en
 
-export function getDictionary(locale: Locale) {
-  return dictionaries[locale] as Dictionary
+type DictionaryOptions = {
+  version?: string
+}
+
+function replaceVersionInDictionaryValue(
+  value: unknown,
+  version: string
+): unknown {
+  if (typeof value === "string") {
+    return value.split(siteConfig.betaVersion).join(version)
+  }
+
+  if (Array.isArray(value)) {
+    return value.map((item) => replaceVersionInDictionaryValue(item, version))
+  }
+
+  if (typeof value === "object" && value !== null) {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, nestedValue]) => [
+        key,
+        replaceVersionInDictionaryValue(nestedValue, version),
+      ])
+    )
+  }
+
+  return value
+}
+
+export function getDictionary(locale: Locale, options: DictionaryOptions = {}) {
+  const dictionary = dictionaries[locale] as Dictionary
+
+  if (!options.version || options.version === siteConfig.betaVersion) {
+    return dictionary
+  }
+
+  return replaceVersionInDictionaryValue(
+    dictionary,
+    options.version
+  ) as Dictionary
 }
 
 export function getLocalizedAlternates(pathname: string) {

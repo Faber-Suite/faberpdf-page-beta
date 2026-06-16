@@ -19,7 +19,7 @@ import {
 } from "@/lib/i18n-server"
 import { localizePath } from "@/lib/i18n-routing"
 import { buildDownloadJsonLd, serializeJsonLd } from "@/lib/seo"
-import { downloadItems } from "@/lib/site"
+import { getSiteRelease } from "@/lib/site"
 
 export async function generateMetadata({
   params,
@@ -34,7 +34,10 @@ export async function generateMetadata({
 }
 
 export default async function DownloadPage({ params }: LocalePageProps) {
-  const { dictionary, locale } = await getLocaleDictionary(params)
+  const release = await getSiteRelease()
+  const { dictionary, locale } = await getLocaleDictionary(params, {
+    version: release.version,
+  })
   const page = dictionary.downloadPage
 
   return (
@@ -42,7 +45,7 @@ export default async function DownloadPage({ params }: LocalePageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: serializeJsonLd(buildDownloadJsonLd(locale)),
+          __html: serializeJsonLd(buildDownloadJsonLd(locale, release)),
         }}
       />
       <section className="border-b bg-surface-quiet">
@@ -65,7 +68,7 @@ export default async function DownloadPage({ params }: LocalePageProps) {
           </div>
 
           <DetectedDownload
-            downloads={downloadItems}
+            downloads={release.downloadItems}
             messages={dictionary.download}
           />
         </div>

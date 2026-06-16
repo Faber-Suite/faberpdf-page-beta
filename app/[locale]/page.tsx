@@ -24,10 +24,13 @@ import { Separator } from "@/components/ui/separator"
 import { getLocaleDictionary, type LocalePageProps } from "@/lib/i18n-server"
 import { localizePath } from "@/lib/i18n-routing"
 import { buildHomeJsonLd, serializeJsonLd } from "@/lib/seo"
-import { downloadItems } from "@/lib/site"
+import { getSiteRelease } from "@/lib/site"
 
 export default async function Page({ params }: LocalePageProps) {
-  const { dictionary, locale } = await getLocaleDictionary(params)
+  const release = await getSiteRelease()
+  const { dictionary, locale } = await getLocaleDictionary(params, {
+    version: release.version,
+  })
   const home = dictionary.home
 
   return (
@@ -35,7 +38,7 @@ export default async function Page({ params }: LocalePageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: serializeJsonLd(buildHomeJsonLd(locale)),
+          __html: serializeJsonLd(buildHomeJsonLd(locale, release)),
         }}
       />
       <section className="relative isolate min-h-[84svh] overflow-hidden border-b bg-surface-quiet md:min-h-[88svh]">
@@ -74,7 +77,7 @@ export default async function Page({ params }: LocalePageProps) {
             <div className="flex flex-col gap-3 sm:flex-row">
               <DetectedDownloadButton
                 downloadPageHref={localizePath(locale, "/download")}
-                downloads={downloadItems}
+                downloads={release.downloadItems}
                 messages={dictionary.download}
                 size="lg"
                 className="w-full sm:w-fit sm:min-w-48"

@@ -1,5 +1,12 @@
 import type { DownloadItem } from "@/lib/download"
 
+const downloadsManifestUrl =
+  process.env.FABERPDF_DOWNLOADS_MANIFEST_URL ??
+  "https://downloads.faberpdf.com/downloads.json"
+const downloadsManifestRevalidateSeconds = 15 * 60
+const trustedDownloadHost = "downloads.faberpdf.com"
+const desktopPlatforms = ["windows", "macos", "linux"] as const
+
 const defaultDownloadUrls = {
   linuxAppImage:
     "https://downloads.faberpdf.com/linux/FaberPDF_0.1.0_amd64.AppImage",
@@ -17,6 +24,115 @@ const defaultDownloadUrls = {
 
 function downloadUrl(value: string | undefined, fallback: string) {
   return value?.trim() || fallback
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value)
+}
+
+function isDesktopPlatform(
+  value: unknown
+): value is (typeof desktopPlatforms)[number] {
+  return (
+    typeof value === "string" &&
+    desktopPlatforms.includes(value as (typeof desktopPlatforms)[number])
+  )
+}
+
+function isTrustedDownloadUrl(value: string) {
+  try {
+    const url = new URL(value)
+
+    return url.protocol === "https:" && url.hostname === trustedDownloadHost
+  } catch {
+    return false
+  }
+}
+
+function parseDownloadOption(value: unknown) {
+  if (!isRecord(value)) {
+    return null
+  }
+
+  const { href, label } = value
+
+  if (
+    typeof href !== "string" ||
+    !isTrustedDownloadUrl(href) ||
+    typeof label !== "string" ||
+    !label.trim()
+  ) {
+    return null
+  }
+
+  return { href, label }
+}
+
+function parseDownloadItem(value: unknown): DownloadItem | null {
+  if (!isRecord(value) || !isDesktopPlatform(value.platform)) {
+    return null
+  }
+
+  if (typeof value.href !== "string") {
+    return null
+  }
+
+  if (value.href.trim() && !isTrustedDownloadUrl(value.href)) {
+    return null
+  }
+
+  if (!Array.isArray(value.options) || value.options.length === 0) {
+    return null
+  }
+
+  const options = value.options.map(parseDownloadOption)
+
+  if (options.some((option) => option === null)) {
+    return null
+  }
+
+  return {
+    href: value.href,
+    options: options as NonNullable<DownloadItem["options"]>,
+    platform: value.platform,
+  }
+}
+
+function parseDownloadsManifest(value: unknown) {
+  if (!isRecord(value) || typeof value.version !== "string") {
+    return null
+  }
+
+  if (!Array.isArray(value.downloads)) {
+    return null
+  }
+
+  const parsedDownloads = value.downloads.map(parseDownloadItem)
+
+  if (parsedDownloads.some((item) => item === null)) {
+    return null
+  }
+
+  const byPlatform = new Map(
+    (parsedDownloads as DownloadItem[]).map((item) => [item.platform, item])
+  )
+
+  if (byPlatform.size !== parsedDownloads.length) {
+    return null
+  }
+
+  const downloadItems = desktopPlatforms.map((platform) =>
+    byPlatform.get(platform)
+  )
+
+  if (downloadItems.some((item) => item === undefined)) {
+    return null
+  }
+
+  return {
+    downloadItems: downloadItems as DownloadItem[],
+    version: value.version,
+  }
 }
 
 export const siteConfig = {
@@ -123,3 +239,46 @@ export const downloadItems = [
     platform: "linux",
   },
 ] satisfies DownloadItem[]
+
+export type SiteRelease = {
+  downloadItems: DownloadItem[]
+  version: string
+}
+
+type Fetcher = (
+  input: string,
+  init?: RequestInit & { next?: { revalidate: number } }
+) => Promise<Response>
+
+export async function getSiteRelease({
+  fetcher = fetch as Fetcher,
+  manifestUrl = downloadsManifestUrl,
+}: {
+  fetcher?: Fetcher
+  manifestUrl?: string
+} = {}): Promise<SiteRelease> {
+  const fallback = {
+    downloadItems,
+    version: siteConfig.betaVersion,
+  }
+
+  if (!isTrustedDownloadUrl(manifestUrl)) {
+    return fallback
+  }
+
+  try {
+    const response = await fetcher(manifestUrl, {
+      next: { revalidate: downloadsManifestRevalidateSeconds },
+    })
+
+    if (!response.ok) {
+      return fallback
+    }
+
+    const release = parseDownloadsManifest(await response.json())
+
+    return release ?? fallback
+  } catch {
+    return fallback
+  }
+}

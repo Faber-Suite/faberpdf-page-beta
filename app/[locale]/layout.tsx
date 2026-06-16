@@ -17,7 +17,7 @@ import {
   localeSearchIntent,
   metadataRobots,
 } from "@/lib/seo"
-import { siteConfig } from "@/lib/site"
+import { getSiteRelease, siteConfig } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
 const fontSans = IBM_Plex_Sans({
@@ -50,7 +50,8 @@ export async function generateMetadata({
     return {}
   }
 
-  const dictionary = getDictionary(locale)
+  const release = await getSiteRelease()
+  const dictionary = getDictionary(locale, { version: release.version })
   const url = localizePath(locale, "/")
 
   return {
@@ -110,7 +111,8 @@ export default async function RootLayout({
     notFound()
   }
 
-  const dictionary = getDictionary(locale)
+  const release = await getSiteRelease()
+  const dictionary = getDictionary(locale, { version: release.version })
 
   return (
     <html
@@ -127,7 +129,11 @@ export default async function RootLayout({
         <ThemeProvider defaultTheme="light" enableSystem={false}>
           <CookieConsentProvider copy={dictionary.cookieConsent}>
             <div className="flex min-h-svh flex-col">
-              <SiteHeader dictionary={dictionary} locale={locale} />
+              <SiteHeader
+                dictionary={dictionary}
+                downloads={release.downloadItems}
+                locale={locale}
+              />
               <div className="flex-1">{children}</div>
               <SiteFooter dictionary={dictionary} locale={locale} />
             </div>

@@ -118,6 +118,67 @@ describe("SEO data contract", () => {
     )
   })
 
+  test("builds JSON-LD from runtime release download data", () => {
+    const release = {
+      downloadItems: [
+        {
+          href: "https://downloads.faberpdf.com/windows/FaberPDF_1.2.3_x64-setup.exe",
+          options: [
+            {
+              href: "https://downloads.faberpdf.com/windows/FaberPDF_1.2.3_x64-setup.exe",
+              label: "Windows setup (.exe)",
+            },
+          ],
+          platform: "windows" as const,
+        },
+        {
+          href: "",
+          options: [
+            {
+              href: "https://downloads.faberpdf.com/macos/aarch64/FaberPDF.app.tar.gz",
+              label: "Apple Silicon Mac app archive (.tar.gz)",
+            },
+          ],
+          platform: "macos" as const,
+        },
+        {
+          href: "https://downloads.faberpdf.com/linux/FaberPDF_1.2.3_amd64.AppImage",
+          options: [
+            {
+              href: "https://downloads.faberpdf.com/linux/FaberPDF_1.2.3_amd64.AppImage",
+              label: "Linux AppImage",
+            },
+          ],
+          platform: "linux" as const,
+        },
+      ],
+      version: "1.2.3",
+    }
+
+    const homeJsonLd = buildHomeJsonLd("en", release)
+    const downloadJsonLd = buildDownloadJsonLd("en", release)
+
+    expect(homeJsonLd).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          "@type": "SoftwareApplication",
+          downloadUrl: release.downloadItems.flatMap((item) =>
+            item.options.map((option) => option.href)
+          ),
+          softwareVersion: "1.2.3",
+        }),
+      ])
+    )
+    expect(downloadJsonLd).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          "@type": "SoftwareApplication",
+          softwareVersion: "1.2.3",
+        }),
+      ])
+    )
+  })
+
   test("escapes JSON-LD script payloads", () => {
     const payload = serializeJsonLd({
       "@context": "https://schema.org",
