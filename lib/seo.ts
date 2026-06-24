@@ -174,11 +174,13 @@ export function serializeJsonLd(value: JsonLdValue) {
 
 function getDownloadUrls(release: SeoRelease) {
   return release.downloadItems.flatMap((item) =>
-    item.options?.length
-      ? item.options.map((option) => option.href)
-      : item.href
-        ? [item.href]
-        : []
+    item.platform === "macos"
+      ? []
+      : item.options?.length
+        ? item.options.map((option) => option.href)
+        : item.href
+          ? [item.href]
+          : []
   )
 }
 
@@ -229,7 +231,7 @@ function softwareApplicationJsonLd(
     url: getRouteUrl(locale, "/"),
     applicationCategory: "BusinessApplication",
     applicationSubCategory: "PDF editor",
-    operatingSystem: "Windows, macOS, Linux",
+    operatingSystem: "Windows, Linux",
     softwareVersion: release.version,
     isAccessibleForFree: true,
     inLanguage: htmlLangs[locale],

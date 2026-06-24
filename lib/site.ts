@@ -1,4 +1,4 @@
-import type { DownloadItem } from "@/lib/download"
+import type { DesktopDownloadPlatform, DownloadItem } from "@/lib/download"
 
 const downloadsManifestUrl =
   process.env.FABERPDF_DOWNLOADS_MANIFEST_URL ??
@@ -6,16 +6,13 @@ const downloadsManifestUrl =
 const downloadsManifestRevalidateSeconds = 15 * 60
 const trustedDownloadHost = "downloads.faberpdf.com"
 const desktopPlatforms = ["windows", "macos", "linux"] as const
+const disabledDownloadPlatforms = new Set<DesktopDownloadPlatform>(["macos"])
 
 const defaultDownloadUrls = {
   linuxAppImage:
     "https://downloads.faberpdf.com/linux/FaberPDF_0.1.0_amd64.AppImage",
   linuxDeb: "https://downloads.faberpdf.com/linux/FaberPDF_0.1.0_amd64.deb",
   linuxRpm: "https://downloads.faberpdf.com/linux/FaberPDF-0.1.0-1.x86_64.rpm",
-  macosAppleSilicon:
-    "https://downloads.faberpdf.com/macos/FaberPDF_0.1.0_aarch64.dmg",
-  macosArchive: "https://downloads.faberpdf.com/macos/FaberPDF.app.tar.gz",
-  macosIntel: "https://downloads.faberpdf.com/macos/FaberPDF_0.1.0_x64.dmg",
   windowsMsi:
     "https://downloads.faberpdf.com/windows/FaberPDF_0.1.0_x64_en-US.msi",
   windowsSetup:
@@ -71,6 +68,14 @@ function parseDownloadOption(value: unknown) {
 function parseDownloadItem(value: unknown): DownloadItem | null {
   if (!isRecord(value) || !isDesktopPlatform(value.platform)) {
     return null
+  }
+
+  if (disabledDownloadPlatforms.has(value.platform)) {
+    return {
+      href: "",
+      options: [],
+      platform: value.platform,
+    }
   }
 
   if (typeof value.href !== "string") {
@@ -183,29 +188,7 @@ export const downloadItems = [
   },
   {
     href: "",
-    options: [
-      {
-        href: downloadUrl(
-          process.env.NEXT_PUBLIC_FABERPDF_MACOS_APPLE_SILICON_URL,
-          defaultDownloadUrls.macosAppleSilicon
-        ),
-        label: "Apple Silicon Mac (.dmg)",
-      },
-      {
-        href: downloadUrl(
-          process.env.NEXT_PUBLIC_FABERPDF_MACOS_INTEL_URL,
-          defaultDownloadUrls.macosIntel
-        ),
-        label: "Intel Mac (.dmg)",
-      },
-      {
-        href: downloadUrl(
-          process.env.NEXT_PUBLIC_FABERPDF_MACOS_URL,
-          defaultDownloadUrls.macosArchive
-        ),
-        label: "macOS app archive (.tar.gz)",
-      },
-    ],
+    options: [],
     platform: "macos",
   },
   {

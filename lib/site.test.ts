@@ -114,7 +114,7 @@ describe("site download configuration", () => {
     )
   })
 
-  test("ships live default installer URLs for each desktop platform", async () => {
+  test("ships live default installer URLs for Windows and Linux", async () => {
     const { downloadItems } =
       await importSiteConfigWithCleanDownloadEnvironment()
 
@@ -135,20 +135,7 @@ describe("site download configuration", () => {
       },
       {
         href: "",
-        options: [
-          {
-            href: "https://downloads.faberpdf.com/macos/FaberPDF_0.1.0_aarch64.dmg",
-            label: "Apple Silicon Mac (.dmg)",
-          },
-          {
-            href: "https://downloads.faberpdf.com/macos/FaberPDF_0.1.0_x64.dmg",
-            label: "Intel Mac (.dmg)",
-          },
-          {
-            href: "https://downloads.faberpdf.com/macos/FaberPDF.app.tar.gz",
-            label: "macOS app archive (.tar.gz)",
-          },
-        ],
+        options: [],
         platform: "macos",
       },
       {
@@ -172,7 +159,68 @@ describe("site download configuration", () => {
     ])
   })
 
-  test("covers every generated installer object from download storage", async () => {
+  test("keeps macOS downloads disabled even when fallback or manifest URLs exist", async () => {
+    const { downloadItems, getSiteRelease } =
+      await importSiteConfigWithCleanDownloadEnvironment()
+
+    expect(downloadItems.find((item) => item.platform === "macos")).toEqual({
+      href: "",
+      options: [],
+      platform: "macos",
+    })
+
+    const release = await getSiteRelease({
+      fetcher: async () =>
+        new Response(
+          JSON.stringify({
+            version: "1.2.3",
+            downloads: [
+              {
+                href: "https://downloads.faberpdf.com/windows/FaberPDF_1.2.3_x64-setup.exe",
+                options: [
+                  {
+                    href: "https://downloads.faberpdf.com/windows/FaberPDF_1.2.3_x64-setup.exe",
+                    label: "Windows setup (.exe)",
+                  },
+                ],
+                platform: "windows",
+              },
+              {
+                href: "",
+                options: [
+                  {
+                    href: "https://downloads.faberpdf.com/macos/FaberPDF_1.2.3_aarch64.dmg",
+                    label: "Apple Silicon Mac (.dmg)",
+                  },
+                ],
+                platform: "macos",
+              },
+              {
+                href: "https://downloads.faberpdf.com/linux/FaberPDF_1.2.3_amd64.AppImage",
+                options: [
+                  {
+                    href: "https://downloads.faberpdf.com/linux/FaberPDF_1.2.3_amd64.AppImage",
+                    label: "Linux AppImage",
+                  },
+                ],
+                platform: "linux",
+              },
+            ],
+          })
+        ),
+      manifestUrl: "https://downloads.faberpdf.com/downloads.json",
+    })
+
+    expect(release.downloadItems.find((item) => item.platform === "macos")).toEqual(
+      {
+        href: "",
+        options: [],
+        platform: "macos",
+      }
+    )
+  })
+
+  test("covers every active generated installer object from download storage", async () => {
     const { downloadItems } =
       await importSiteConfigWithCleanDownloadEnvironment()
     const configuredUrls = downloadItems.flatMap((item) =>
@@ -182,9 +230,6 @@ describe("site download configuration", () => {
     expect(configuredUrls).toEqual([
       "https://downloads.faberpdf.com/windows/FaberPDF_0.1.0_x64-setup.exe",
       "https://downloads.faberpdf.com/windows/FaberPDF_0.1.0_x64_en-US.msi",
-      "https://downloads.faberpdf.com/macos/FaberPDF_0.1.0_aarch64.dmg",
-      "https://downloads.faberpdf.com/macos/FaberPDF_0.1.0_x64.dmg",
-      "https://downloads.faberpdf.com/macos/FaberPDF.app.tar.gz",
       "https://downloads.faberpdf.com/linux/FaberPDF_0.1.0_amd64.AppImage",
       "https://downloads.faberpdf.com/linux/FaberPDF_0.1.0_amd64.deb",
       "https://downloads.faberpdf.com/linux/FaberPDF-0.1.0-1.x86_64.rpm",

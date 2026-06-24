@@ -87,7 +87,7 @@ describe("SEO data contract", () => {
         expect.objectContaining({
           "@type": "SoftwareApplication",
           applicationCategory: "BusinessApplication",
-          operatingSystem: "Windows, macOS, Linux",
+          operatingSystem: "Windows, Linux",
           softwareVersion: siteConfig.betaVersion,
         }),
         expect.objectContaining({
@@ -162,9 +162,10 @@ describe("SEO data contract", () => {
       expect.arrayContaining([
         expect.objectContaining({
           "@type": "SoftwareApplication",
-          downloadUrl: release.downloadItems.flatMap((item) =>
-            item.options.map((option) => option.href)
-          ),
+          downloadUrl: [
+            "https://downloads.faberpdf.com/windows/FaberPDF_1.2.3_x64-setup.exe",
+            "https://downloads.faberpdf.com/linux/FaberPDF_1.2.3_amd64.AppImage",
+          ],
           softwareVersion: "1.2.3",
         }),
       ])

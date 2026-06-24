@@ -127,6 +127,7 @@ describe("getDownloadButtonModel", () => {
   const copy: DownloadButtonCopy = {
     button: "Download for {platform}",
     chooseButton: "Choose {platform} installer",
+    pendingButton: "Installer link pending",
     unsupportedButton: "Your OS is not supported",
   }
 
@@ -140,7 +141,7 @@ describe("getDownloadButtonModel", () => {
     })
   })
 
-  it("keeps pending desktop buttons OS-specific while disabling the action", () => {
+  it("labels pending desktop buttons with unavailable installer copy", () => {
     expect(
       getDownloadButtonModel(
         [{ href: "", platform: "windows" }],
@@ -151,7 +152,7 @@ describe("getDownloadButtonModel", () => {
     ).toMatchObject({
       disabled: true,
       href: null,
-      label: "Download for Windows",
+      label: "Installer link pending",
     })
   })
 

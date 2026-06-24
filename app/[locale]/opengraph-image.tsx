@@ -122,7 +122,6 @@ export default async function Image({ params }: ImageProps) {
         }}
       >
         <span>Windows</span>
-        <span>macOS</span>
         <span>Linux</span>
         <span>No browser upload</span>
       </div>

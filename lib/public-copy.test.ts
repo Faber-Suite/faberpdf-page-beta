@@ -100,6 +100,24 @@ describe("public website copy", () => {
     expect(strings).not.toMatch(/environment variable|NEXT_PUBLIC/i)
   })
 
+  test("download availability copy does not advertise macOS installers", () => {
+    const strings = locales
+      .map((locale) => {
+        const dictionary = getDictionary(locale)
+
+        return {
+          download: dictionary.download,
+          downloadPage: dictionary.downloadPage,
+          home: dictionary.home,
+        }
+      })
+      .flatMap(collectStrings)
+      .join("\n")
+
+    expect(strings).not.toMatch(/Windows,\s*macOS/i)
+    expect(strings).not.toMatch(/macOS (i|ili|или) Linux/i)
+  })
+
   test("public pages render localized JSON-LD from SEO builders", () => {
     const pageSources = [
       "app/[locale]/page.tsx",

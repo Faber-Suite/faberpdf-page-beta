@@ -24,7 +24,11 @@ type DetectedDownloadButtonProps = {
   downloads: DownloadItem[]
   messages: Pick<
     Dictionary["download"],
-    "button" | "chooseButton" | "platformNames" | "unsupportedButton"
+    | "button"
+    | "chooseButton"
+    | "pendingButton"
+    | "platformNames"
+    | "unsupportedButton"
   >
   size?: React.ComponentProps<typeof Button>["size"]
 }
@@ -76,6 +80,7 @@ export function DetectedDownloadButton({
         {
           button: messages.button,
           chooseButton: messages.chooseButton,
+          pendingButton: messages.pendingButton,
           unsupportedButton: messages.unsupportedButton,
         }
       ),

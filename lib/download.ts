@@ -31,6 +31,7 @@ export type DownloadState =
 export type DownloadButtonCopy = {
   button: string
   chooseButton: string
+  pendingButton: string
   unsupportedButton: string
 }
 
@@ -204,7 +205,7 @@ export function getDownloadButtonModel(
   return {
     disabled: true,
     href: null,
-    label,
+    label: copy.pendingButton,
     status: downloadState.status,
   }
 }

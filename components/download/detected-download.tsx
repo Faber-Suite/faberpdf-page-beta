@@ -103,12 +103,14 @@ export function DetectedDownload({
       getDownloadButtonModel(downloads, selectedPlatform, selectedLabel, {
         button: messages.button,
         chooseButton: messages.chooseButton,
+        pendingButton: messages.pendingButton,
         unsupportedButton: messages.unsupportedButton,
       }),
     [
       downloads,
       messages.button,
       messages.chooseButton,
+      messages.pendingButton,
       messages.unsupportedButton,
       selectedLabel,
       selectedPlatform,
